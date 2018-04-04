@@ -54,11 +54,11 @@ uint8_t KeemoLib::memory::readMemory(const uint16_t address)
 	}
 	else if(address < EMPTY2_LIMIT)
 	{
-		return io[address - IO_LIMIT];
+		return empty2[address - IO_LIMIT];
 	}
 	else if(address < HRAM_LIMIT)
 	{
-		return io[address - EMPTY2_LIMIT];
+		return hram[address - EMPTY2_LIMIT];
 	}
 	
 	return 0;
