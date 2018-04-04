@@ -27,15 +27,15 @@ namespace KeemoLib
 		constexpr const int EMPTY2_LIMIT = IO_LIMIT + EMPTY2_SIZE;
 		constexpr const int HRAM_LIMIT = EMPTY2_LIMIT + HRAM_SIZE;
 
-		uint8_t rom[ROM_SIZE];
-		uint8_t vram[VRAM_SIZE];
-		uint8_t sram[SRAM_SIZE];
-		uint8_t iram[IRAM_SIZE];
-		uint8_t oam[OAM_SIZE];
-		uint8_t empty1[EMPTY1_SIZE];
-		uint8_t io[IO_SIZE];
-		uint8_t empty2[EMPTY2_SIZE];
-		uint8_t hram[HRAM_SIZE];
+		extern uint8_t rom[ROM_SIZE];
+		extern uint8_t vram[VRAM_SIZE];
+		extern uint8_t sram[SRAM_SIZE];
+		extern uint8_t iram[IRAM_SIZE];
+		extern uint8_t oam[OAM_SIZE];
+		extern uint8_t empty1[EMPTY1_SIZE];
+		extern uint8_t io[IO_SIZE];
+		extern uint8_t empty2[EMPTY2_SIZE];
+		extern uint8_t hram[HRAM_SIZE];
 
 		uint8_t readMemory(const uint16_t address);
 	}

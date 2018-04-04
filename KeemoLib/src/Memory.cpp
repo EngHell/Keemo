@@ -1,5 +1,21 @@
 #include "../includes/Memory.h"
 
+namespace KeemoLib
+{
+	namespace memory
+	{
+		uint8_t rom[ROM_SIZE];
+		uint8_t vram[VRAM_SIZE];
+		uint8_t sram[SRAM_SIZE];
+		uint8_t iram[IRAM_SIZE];
+		uint8_t oam[OAM_SIZE];
+		uint8_t empty1[EMPTY1_SIZE];
+		uint8_t io[IO_SIZE];
+		uint8_t empty2[EMPTY2_SIZE];
+		uint8_t hram[HRAM_SIZE];
+	}
+}
+
 uint8_t KeemoLib::memory::readMemory(const uint16_t address)
 {
 	using namespace KeemoLib::memory;
