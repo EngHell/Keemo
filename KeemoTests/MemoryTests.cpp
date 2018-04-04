@@ -14,11 +14,11 @@ namespace KeemoTests
 		public:
 			TEST_METHOD(TestReadRomMemorySpace)
 			{
-				
+				const uint16_t start = 0;
 				const uint16_t size = 0x8000;
-				const uint16_t limit = 0 + size;
+				const uint16_t limit = start + size;
 
-				for(uint16_t i = 0; i < limit; ++i )
+				for(uint16_t i = start; i < limit; ++i )
 				{
 					KeemoLib::memory::rom[i] = uint8_t(i);
 				}
