@@ -16,7 +16,7 @@ namespace KeemoLib
 	}
 }
 
-uint8_t KeemoLib::memory::readMemory(const uint16_t address)
+uint8_t KeemoLib::memory::readUInt8(const uint16_t address)
 {
 	using namespace KeemoLib::memory;
 
