@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Keemo", "Keemo\Keemo.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KeemoLib", "KeemoLib\KeemoLib.vcxproj", "{D17F613B-D28F-4E24-84F5-D5A02CF93DAC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KeemoTests", "KeemoTests\KeemoTests.vcxproj", "{65A22831-CE38-4BC1-B581-1482EAD90AAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{D17F613B-D28F-4E24-84F5-D5A02CF93DAC}.Release|x64.Build.0 = Release|x64
 		{D17F613B-D28F-4E24-84F5-D5A02CF93DAC}.Release|x86.ActiveCfg = Release|Win32
 		{D17F613B-D28F-4E24-84F5-D5A02CF93DAC}.Release|x86.Build.0 = Release|Win32
+		{65A22831-CE38-4BC1-B581-1482EAD90AAE}.Debug|x64.ActiveCfg = Debug|x64
+		{65A22831-CE38-4BC1-B581-1482EAD90AAE}.Debug|x64.Build.0 = Debug|x64
+		{65A22831-CE38-4BC1-B581-1482EAD90AAE}.Debug|x86.ActiveCfg = Debug|Win32
+		{65A22831-CE38-4BC1-B581-1482EAD90AAE}.Debug|x86.Build.0 = Debug|Win32
+		{65A22831-CE38-4BC1-B581-1482EAD90AAE}.Release|x64.ActiveCfg = Release|x64
+		{65A22831-CE38-4BC1-B581-1482EAD90AAE}.Release|x64.Build.0 = Release|x64
+		{65A22831-CE38-4BC1-B581-1482EAD90AAE}.Release|x86.ActiveCfg = Release|Win32
+		{65A22831-CE38-4BC1-B581-1482EAD90AAE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
