@@ -21,18 +21,21 @@
     <ClInclude Include="targetver.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Cpu.h">
+    <ClInclude Include="includes\Cpu.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="KeemoDefines.h">
+    <ClInclude Include="includes\KeemoDefines.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Memory.h">
+    <ClInclude Include="includes\Memory.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cpu.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

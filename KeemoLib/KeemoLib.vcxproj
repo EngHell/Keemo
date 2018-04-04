@@ -147,13 +147,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Cpu.h" />
-    <ClInclude Include="KeemoDefines.h" />
-    <ClInclude Include="Memory.h" />
+    <ClInclude Include="includes\Cpu.h" />
+    <ClInclude Include="includes\KeemoDefines.h" />
+    <ClInclude Include="includes\Memory.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Cpu.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
