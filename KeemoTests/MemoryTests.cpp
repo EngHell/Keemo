@@ -205,6 +205,31 @@ namespace KeemoTests
 					Assert::AreEqual(uint8_t(10), actual);
 				}
 			}
+
+			TEST_METHOD(TestWriteMemory)
+			{
+				/*
+				 * We can test this directly in an unique for loop since we have
+				 * strong tests against the reads
+				 * so we know our reads mapping is right, then based on this
+				 * we can just test a continuos write to all the memory address
+				 */
+				const uint16_t start = 0;
+				const uint16_t limit = 0xffff;
+
+				for(uint16_t i = start; i < limit; ++i)
+				{
+					KeemoLib::memory::writeUInt8(i, uint8_t(i));
+				}
+
+				for (uint16_t i = start; i < limit; ++i)
+				{
+					const uint8_t actual = KeemoLib::memory::readUInt8(i);
+					const uint8_t expected = uint8_t(i);
+
+					Assert::AreEqual(expected, actual);
+				}
+			}
 		};
 	}
 }
