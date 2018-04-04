@@ -31,7 +31,7 @@ namespace KeemoTests
 				}
 			}
 
-			TEST_METHOD(TestVramMemorySpace)
+			TEST_METHOD(TestReadVramMemorySpace)
 			{
 				const uint16_t start = 0x8000;
 				const uint16_t size = 0x2000;
@@ -50,7 +50,7 @@ namespace KeemoTests
 				}
 			}
 
-			TEST_METHOD(TestSRamMemorySpace)
+			TEST_METHOD(TestReadSRamMemorySpace)
 			{
 				const uint16_t start = 0xa000;
 				const uint16_t size = 0x2000;
@@ -69,7 +69,7 @@ namespace KeemoTests
 				}
 			}
 
-			TEST_METHOD(TestIRamMemorySpace)
+			TEST_METHOD(TestReadIRamMemorySpace)
 			{
 				const uint16_t start = 0xc000;
 				const uint16_t size = 0x2000;
@@ -88,7 +88,7 @@ namespace KeemoTests
 				}
 			}
 
-			TEST_METHOD(TestEchoMemorySpace)
+			TEST_METHOD(TestReadEchoMemorySpace)
 			{
 				const uint16_t start = 0xe000;
 				const uint16_t size = 0x1e00;
@@ -107,7 +107,7 @@ namespace KeemoTests
 				}
 			}
 
-			TEST_METHOD(TestOamMemorySpace)
+			TEST_METHOD(TestReadOamMemorySpace)
 			{
 				const uint16_t start = 0xfe00;
 				const uint16_t size = 0xa0;
@@ -126,7 +126,7 @@ namespace KeemoTests
 				}
 			}
 
-			TEST_METHOD(TestEmpty1MemorySpace)
+			TEST_METHOD(TestReadEmpty1MemorySpace)
 			{
 				const uint16_t start = 0xfea0;
 				const uint16_t size = 0x60;
@@ -145,7 +145,7 @@ namespace KeemoTests
 				}
 			}
 
-			TEST_METHOD(TestIOMemorySpace)
+			TEST_METHOD(TestReadIOMemorySpace)
 			{
 				const uint16_t start = 0xff00;
 				const uint16_t size = 0x4c;
@@ -168,7 +168,7 @@ namespace KeemoTests
 				}
 			}
 
-			TEST_METHOD(TestEmpty2MemorySpace)
+			TEST_METHOD(TestReadEmpty2MemorySpace)
 			{
 				const uint16_t start = 0xff4c;
 				const uint16_t size = 0x34;
@@ -187,7 +187,7 @@ namespace KeemoTests
 				}
 			}
 
-			TEST_METHOD(TestHRamMemorySpace)
+			TEST_METHOD(TestReadHRamMemorySpace)
 			{
 				const uint16_t start = 0xff80;
 				const uint16_t size = 0x7f;
