@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <climits>
 
 namespace KeemoLib
 {
@@ -10,6 +11,7 @@ namespace KeemoLib
 		constexpr const int VRAM_SIZE = 0x2000; // 8kBi
 		constexpr const int SRAM_SIZE = 0x2000; // 8kBi
 		constexpr const int IRAM_SIZE = 0x2000; // 8kBi
+		constexpr const int ECHO_IRAM_SIZE = 0x1e00; //
 		constexpr const int OAM_SIZE = 0xa0; // 160
 		constexpr const int EMPTY1_SIZE = 0x60; // 96
 		constexpr const int IO_SIZE = 0x4c; // 76
@@ -20,7 +22,7 @@ namespace KeemoLib
 		constexpr const int VRAM_LIMIT = ROM_LIMIT + VRAM_SIZE;
 		constexpr const int SRAM_LIMIT = VRAM_LIMIT + SRAM_SIZE;
 		constexpr const int IRAM_LIMIT = SRAM_LIMIT + IRAM_SIZE;
-		constexpr const int ECHO_IRAM_LIMIT = IRAM_LIMIT + IRAM_SIZE;
+		constexpr const int ECHO_IRAM_LIMIT = IRAM_LIMIT + ECHO_IRAM_SIZE;
 		constexpr const int OAM_LIMIT = ECHO_IRAM_LIMIT + OAM_SIZE;
 		constexpr const int EMPTY1_LIMIT = OAM_LIMIT + EMPTY1_SIZE;
 		constexpr const int IO_LIMIT = EMPTY1_LIMIT + IO_SIZE;
