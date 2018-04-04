@@ -7,7 +7,7 @@ namespace KeemoLib
 	{
 
 		constexpr const int ROM_SIZE = 0x8000; // 32kBi
-		constexpr const int VRAM_SIZE = 0x200; // 8kBi
+		constexpr const int VRAM_SIZE = 0x2000; // 8kBi
 		constexpr const int SRAM_SIZE = 0x2000; // 8kBi
 		constexpr const int IRAM_SIZE = 0x2000; // 8kBi
 		constexpr const int OAM_SIZE = 0xa0; // 160
