@@ -40,5 +40,6 @@ namespace KeemoLib
 		extern uint8_t hram[HRAM_SIZE];
 
 		uint8_t readUInt8(const uint16_t address);
+		void writeUInt8(const uint16_t address, const uint8_t value);
 	}
 }
