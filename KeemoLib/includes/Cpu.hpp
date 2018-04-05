@@ -100,6 +100,15 @@ namespace KeemoLib
 			void LD_E_n();
 			void LD_H_n();
 			void LD_L_n();
+			// LD r1,r2
+			void ld_a_a();
+			void ld_a_b();
+			void ld_a_c();
+			void ld_a_d();
+			void ld_a_e();
+			void ld_a_h();
+			void ld_a_l();
+			void ld_a_hl();
 			void NOP();
 		}
 	}
