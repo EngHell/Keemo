@@ -147,9 +147,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="includes\Cpu.h" />
+    <ClInclude Include="includes\Cpu.hpp" />
     <ClInclude Include="includes\KeemoDefines.h" />
-    <ClInclude Include="includes\Memory.h" />
+    <ClInclude Include="includes\Memory.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

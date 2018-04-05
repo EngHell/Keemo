@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include <CppUnitTest.h>
-#include "../KeemoLib/includes/Memory.h"
+#include "../KeemoLib/includes/Memory.hpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

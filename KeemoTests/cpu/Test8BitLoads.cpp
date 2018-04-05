@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include <CppUnitTest.h>
-#include "../../KeemoLib/includes/Memory.h"
-#include "../../KeemoLib/includes/Cpu.h"
+#include "../../KeemoLib/includes/Memory.hpp"
+#include "../../KeemoLib/includes/Cpu.hpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
