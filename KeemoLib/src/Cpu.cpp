@@ -73,6 +73,27 @@ void cpu::step()
 	case 0x7e:
 		op::ld_a_hl();
 		break;
+	case 0x40:
+		op::ld_b_b();
+		break;
+	case 0x41:
+		op::ld_b_c();
+		break;
+	case 0x42:
+		op::ld_b_d();
+		break;
+	case 0x43:
+		op::ld_b_e();
+		break;
+	case 0x44:
+		op::ld_b_h();
+		break;
+	case 0x45:
+		op::ld_b_l();
+		break;
+	case 0x46:
+		op::ld_b_hl();
+		break;
 	default:
 		op::NOP();
 		break;
@@ -169,6 +190,42 @@ void cpu::op::ld_a_hl()
 {
 	registers.a = memory::readUInt8(registers.hl);
 }
+
+void cpu::op::ld_b_b()
+{
+	registers.b = registers.b;
+}
+
+void cpu::op::ld_b_c()
+{
+	registers.b = registers.c;
+}
+
+void cpu::op::ld_b_d()
+{
+	registers.b = registers.d;
+}
+
+void cpu::op::ld_b_e()
+{
+	registers.b = registers.e;
+}
+
+void cpu::op::ld_b_h()
+{
+	registers.b = registers.h;
+}
+
+void cpu::op::ld_b_l()
+{
+	registers.b = registers.l;
+}
+
+void cpu::op::ld_b_hl()
+{
+	registers.b = memory::readUInt8(registers.hl);
+}
+
 
 /*
  * NOP
