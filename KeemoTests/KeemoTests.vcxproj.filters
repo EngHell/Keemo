@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{10f355ca-c929-448b-ba45-ca10392a9268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Memory">
+      <UniqueIdentifier>{132d0351-57ad-41d1-bda2-5df99bc3e24e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Cpu">
+      <UniqueIdentifier>{28edd46c-b37a-4969-8f08-fe6968597ca1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Cpu\OpCodes">
+      <UniqueIdentifier>{adffb86b-4f2a-45bc-a47c-fadd7b5ef053}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -27,7 +39,10 @@
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="MemoryTests.cpp">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Tests\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu\Test8BitLoads.cpp">
+      <Filter>Tests\Cpu\OpCodes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

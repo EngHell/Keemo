@@ -14,7 +14,7 @@ namespace KeemoLib
 			C = 1 << 4
 		};
 
-		struct registers
+		struct Registers
 		{
 			struct
 			{
@@ -72,12 +72,35 @@ namespace KeemoLib
 			uint16_t sp;
 			uint16_t pc;
 
-		} registers;
+		};
 
+		struct Instruction
+		{
+			uint8_t length;
+			wchar_t *disassembly;
+		};
+
+		extern uint8_t opcode;
+		extern Registers registers;
+		//Instruction currentInstruction;
+		//Instruction instructionDictionary[256];
+
+		void initInstructionDictionary();
 		void step();
 		void fetchInstruction();
 		void decodeInstruction();
 		void executeCommand();
 		void storeResults();
+
+		namespace op
+		{
+			void LD_B_n();
+			void LD_C_n();
+			void LD_D_n();
+			void LD_E_n();
+			void LD_H_n();
+			void LD_L_n();
+			void NOP();
+		}
 	}
 }
