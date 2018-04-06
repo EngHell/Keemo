@@ -206,6 +206,10 @@ void cpu::op::LD_L_n()
  * 
  * r1 = r2
  */
+
+/*
+ * LD A,r2
+ */
 void cpu::op::ld_a_a()
 {
 	registers.a = registers.a;
@@ -246,6 +250,9 @@ void cpu::op::ld_a_hl()
 	registers.a = memory::readUInt8(registers.hl);
 }
 
+/*
+* LD B,r2
+*/
 void cpu::op::ld_b_b()
 {
 	registers.b = registers.b;
@@ -281,6 +288,9 @@ void cpu::op::ld_b_hl()
 	registers.b = memory::readUInt8(registers.hl);
 }
 
+/*
+* LD C,r2
+*/
 void cpu::op::ld_c_b()
 {
 	registers.c = registers.b;
@@ -316,7 +326,9 @@ void cpu::op::ld_c_hl()
 	registers.c = memory::readUInt8(registers.hl);
 }
 
-
+/*
+* LD D,r2
+*/
 void cpu::op::ld_d_b()
 {
 	registers.d = registers.b;
