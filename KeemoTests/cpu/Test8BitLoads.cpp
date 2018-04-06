@@ -694,6 +694,178 @@ namespace KeemoTests
 
 					Assert::IsTrue((address + 1) == cpu::registers.pc);
 				}
+
+				TEST_METHOD(Test_ld_d_b)
+				{
+					const uint8_t opcode = 0x50;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.b = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.d;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_d_c)
+				{
+					const uint8_t opcode = 0x51;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.c = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.d;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_d_d)
+				{
+					const uint8_t opcode = 0x52;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.d = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.d;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_d_e)
+				{
+					const uint8_t opcode = 0x53;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.e = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.d;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_d_h)
+				{
+					const uint8_t opcode = 0x54;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.h = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.d;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_d_l)
+				{
+					const uint8_t opcode = 0x55;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.l = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.d;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_d_hl)
+				{
+					const uint8_t opcode = 0x56;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+					const uint8_t hl = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					cpu::registers.hl = hl;
+
+					memory::writeUInt8(address, opcode);
+
+					// expected
+					memory::writeUInt8(hl, expected);
+
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.d;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
 			};
 		}
 	}
