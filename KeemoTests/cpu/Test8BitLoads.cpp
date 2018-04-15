@@ -1392,6 +1392,177 @@ namespace KeemoTests
 
 					Assert::IsTrue((address + 1) == cpu::registers.pc);
 				}
+
+				/*****************************************************************************************
+				* LD (HL),r2
+				******************************************************************************************/
+				TEST_METHOD(Test_ld_hl_b)
+				{
+					const uint8_t opcode = 0x70;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.b = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = memory::readUInt8(cpu::registers.hl);
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_hl_c)
+				{
+					const uint8_t opcode = 0x71;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.c = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = memory::readUInt8(cpu::registers.hl);
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_hl_d)
+				{
+					const uint8_t opcode = 0x72;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.d = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = memory::readUInt8(cpu::registers.hl);
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_hl_e)
+				{
+					const uint8_t opcode = 0x73;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.e = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = memory::readUInt8(cpu::registers.hl);
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_hl_h)
+				{
+					const uint8_t opcode = 0x74;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.h = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = memory::readUInt8(cpu::registers.hl);
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_hl_l)
+				{
+					const uint8_t opcode = 0x75;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					cpu::registers.l = expected;
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = memory::readUInt8(cpu::registers.hl);
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_hl_n)
+				{
+					const uint8_t opcode = 0x36;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					memory::writeUInt8(address, opcode);
+
+					// parameter register
+					memory::writeUInt8(address+1, expected);
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = memory::readUInt8(cpu::registers.hl);
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 2) == cpu::registers.pc);
+				}
 			};
 		}
 	}
