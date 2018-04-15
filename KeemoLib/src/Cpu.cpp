@@ -199,6 +199,31 @@ void cpu::step()
 	case 0x66:
 		op::ld_h_hl();
 		break;
+
+		/*
+		* LD L,r2
+		*/
+	case 0x68:
+		op::ld_l_b();
+		break;
+	case 0x69:
+		op::ld_l_c();
+		break;
+	case 0x6a:
+		op::ld_l_d();
+		break;
+	case 0x6b:
+		op::ld_l_e();
+		break;
+	case 0x6c:
+		op::ld_l_h();
+		break;
+	case 0x6d:
+		op::ld_l_l();
+		break;
+	case 0x6e:
+		op::ld_l_hl();
+		break;
 	default:
 		op::NOP();
 		break;
@@ -488,6 +513,45 @@ void cpu::op::ld_h_l()
 void cpu::op::ld_h_hl()
 {
 	registers.h = memory::readUInt8(registers.hl);
+}
+
+
+/*
+* LD L,r2
+*/
+void cpu::op::ld_l_b()
+{
+	registers.l = registers.b;
+}
+
+void cpu::op::ld_l_c()
+{
+	registers.l = registers.c;
+}
+
+void cpu::op::ld_l_d()
+{
+	registers.l = registers.d;
+}
+
+void cpu::op::ld_l_e()
+{
+	registers.l = registers.e;
+}
+
+void cpu::op::ld_l_h()
+{
+	registers.l = registers.h;
+}
+
+void cpu::op::ld_l_l()
+{
+	registers.l = registers.l;
+}
+
+void cpu::op::ld_l_hl()
+{
+	registers.l = memory::readUInt8(registers.hl);
 }
 
 /*
