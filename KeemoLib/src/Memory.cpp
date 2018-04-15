@@ -64,6 +64,11 @@ uint8_t KeemoLib::memory::readUInt8(const uint16_t address)
 	return 0;
 }
 
+uint16_t KeemoLib::memory::readUInt16(const uint16_t address)
+{
+	return (readUInt8(address) << 8) | readUInt8(address + 1);
+}
+
 void KeemoLib::memory::writeUInt8(const uint16_t address, const uint8_t value)
 {
 	using namespace KeemoLib::memory;

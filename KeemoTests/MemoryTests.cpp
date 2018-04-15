@@ -230,6 +230,22 @@ namespace KeemoTests
 					Assert::AreEqual(expected, actual);
 				}
 			}
+
+			TEST_METHOD(Test16BitRead)
+			{
+				const uint16_t address = rand() % 0xffff;
+				const uint16_t expected = 0xff0f;
+
+				using namespace KeemoLib;
+
+				memory::writeUInt8(address, 0xff);
+				memory::writeUInt8(address + 1, 0x0f);
+
+				const uint16_t actual = memory::readUInt16(address);
+
+				// sort arround bugs and some output as there isnt any output from this assert
+				Assert::IsTrue(actual == expected, L"actual is diferent from expected");
+			}
 		};
 	}
 }
