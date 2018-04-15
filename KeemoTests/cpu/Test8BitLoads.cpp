@@ -14,7 +14,7 @@ namespace KeemoTests
 			TEST_CLASS(Test8BitLoads)
 			{
 			public:
-				TEST_METHOD(TestLdBN)
+				TEST_METHOD(Test_ld_b_n)
 				{
 					// OPCODE: 0x06
 					// LD B, n
@@ -36,7 +36,7 @@ namespace KeemoTests
 
 				}
 
-				TEST_METHOD(TestLdCN)
+				TEST_METHOD(Test_ld_c_n)
 				{
 					// OPCODE: 0x0e
 					// LD C, n
@@ -59,7 +59,7 @@ namespace KeemoTests
 
 				}
 
-				TEST_METHOD(TestLdDN)
+				TEST_METHOD(Test_ld_d_n)
 				{
 					// OPCODE: 0x16
 					// LD D, n
@@ -83,7 +83,7 @@ namespace KeemoTests
 
 				}
 
-				TEST_METHOD(TestLdEN)
+				TEST_METHOD(Test_ld_e_n)
 				{
 					// OPCODE: 0x1E
 					// LD D, n
@@ -107,7 +107,7 @@ namespace KeemoTests
 
 				}
 
-				TEST_METHOD(TestLdHN)
+				TEST_METHOD(Test_ld_h_n)
 				{
 					// OPCODE: 0x26
 					// LD D, n
@@ -131,7 +131,7 @@ namespace KeemoTests
 
 				}
 
-				TEST_METHOD(TestLdLN)
+				TEST_METHOD(Test_ld_l_n)
 				{
 					// OPCODE: 0x2e
 					// LD D, n
