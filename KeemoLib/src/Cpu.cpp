@@ -74,6 +74,15 @@ void cpu::step()
 	case 0x7d:
 		op::ld_a_l();
 		break;
+	case 0x0a:
+		op::ld_a_bc();
+		break;
+	case 0x1a:
+		op::ld_a_de();
+		break;
+	case 0xfa:
+		op::ld_a_nn();
+		break;
 	case 0x7e:
 		op::ld_a_hl();
 		break;
@@ -148,6 +157,9 @@ void cpu::step()
 		break;
 	case 0x56:
 		op::ld_d_hl();
+		break;
+	case 0x3e:
+		op::ld_a_n();
 		break;
 
 		/**
@@ -345,9 +357,31 @@ void cpu::op::ld_a_l()
 	registers.a = registers.l;
 }
 
+void cpu::op::ld_a_bc()
+{
+	registers.a = memory::readUInt8(registers.bc);
+}
+
+void cpu::op::ld_a_de()
+{
+	registers.a = memory::readUInt8(registers.de);
+}
+
 void cpu::op::ld_a_hl()
 {
 	registers.a = memory::readUInt8(registers.hl);
+}
+
+void cpu::op::ld_a_n()
+{
+	registers.a = registers.pc;
+}
+
+void cpu::op::ld_a_nn()
+{
+	registers.a = memory::readUInt8(memory::readUInt16(++registers.pc));
+	//one more plus as we take the two adjacent
+	registers.pc++;
 }
 
 /*

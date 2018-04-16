@@ -390,7 +390,7 @@ namespace KeemoTests
 					using namespace KeemoLib;
 
 					cpu::registers.pc = address;
-					cpu::registers.de = toDeference;
+					memory::writeUInt16(address + 1, toDeference);
 
 					memory::writeUInt8(address, opcode);
 
@@ -405,7 +405,7 @@ namespace KeemoTests
 
 					Assert::AreEqual(expected, actual);
 
-					Assert::IsTrue((address + 1) == cpu::registers.pc);
+					Assert::IsTrue((address + 3) == cpu::registers.pc);
 				}
 
 				TEST_METHOD(Test_ld_a_hl)
@@ -434,6 +434,32 @@ namespace KeemoTests
 					Assert::AreEqual(expected, actual);
 
 					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_a_n)
+				{
+					const uint8_t opcode = 0x3e;
+					const uint8_t expected_address = rand() % 0xffff;
+					const uint8_t hl = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = expected_address;
+
+					memory::writeUInt8(expected_address, opcode);
+
+					// expected
+					
+
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.a;
+
+					Assert::AreEqual(expected_address, actual);
+
+					Assert::IsTrue((expected_address + 1) == cpu::registers.pc);
 				}
 
 				TEST_METHOD(Test_ld_b_b)
