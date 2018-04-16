@@ -440,15 +440,12 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x3e;
 					const uint8_t expected_address = rand() % 0xffff;
-					const uint8_t hl = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
 					cpu::registers.pc = expected_address;
 
 					memory::writeUInt8(expected_address, opcode);
-
-					// expected
 					
 
 
