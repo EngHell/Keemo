@@ -75,42 +75,49 @@ void KeemoLib::memory::writeUInt8(const uint16_t address, const uint8_t value)
 
 	if (address < ROM_LIMIT)
 	{
-		 rom[address] = value;
+		rom[address] = value;
 	}
 	else if (address < VRAM_LIMIT)
 	{
-		 vram[address - ROM_LIMIT] = value;
+		vram[address - ROM_LIMIT] = value;
 	}
 	else if (address < SRAM_LIMIT)
 	{
-		 sram[address - VRAM_LIMIT] = value;
+		sram[address - VRAM_LIMIT] = value;
 	}
 	else if (address < IRAM_LIMIT)
 	{
-		 iram[address - SRAM_LIMIT] = value;
+		iram[address - SRAM_LIMIT] = value;
 	}
 	else if (address < ECHO_IRAM_LIMIT)
 	{
-		 iram[address - IRAM_LIMIT] = value;
+		iram[address - IRAM_LIMIT] = value;
 	}
 	else if (address < OAM_LIMIT)
 	{
-		 oam[address - ECHO_IRAM_LIMIT] = value;
+		oam[address - ECHO_IRAM_LIMIT] = value;
 	}
 	else if (address < EMPTY1_LIMIT)
 	{
-		 empty1[address - OAM_LIMIT] = value;
+		empty1[address - OAM_LIMIT] = value;
 	}
 	else if (address < IO_LIMIT)
 	{
-		 io[address - EMPTY1_LIMIT] = value;
+		io[address - EMPTY1_LIMIT] = value;
 	}
 	else if (address < EMPTY2_LIMIT)
 	{
-		 empty2[address - IO_LIMIT] = value;
+		empty2[address - IO_LIMIT] = value;
 	}
 	else if (address < HRAM_LIMIT)
 	{
-		 hram[address - EMPTY2_LIMIT] = value;
+		hram[address - EMPTY2_LIMIT] = value;
 	}
+
+}
+
+void KeemoLib::memory::writeUInt16(const uint16_t address, const uint16_t value)
+{
+	writeUInt8(address, (value >> 8));
+	writeUInt8(address + 1, (value & 0xff));
 }

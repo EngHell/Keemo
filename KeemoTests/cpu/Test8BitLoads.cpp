@@ -323,6 +323,91 @@ namespace KeemoTests
 					Assert::IsTrue((address + 1) == cpu::registers.pc);
 				}
 
+				TEST_METHOD(Test_ld_a_bc)
+				{
+					const uint8_t opcode = 0x0a;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+					const uint8_t toDeference = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					cpu::registers.bc = toDeference;
+
+					memory::writeUInt8(address, opcode);
+
+					// expected
+					memory::writeUInt8(toDeference, expected);
+
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.a;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_ld_a_de)
+				{
+					const uint8_t opcode = 0x1a;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+					const uint8_t toDeference = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					cpu::registers.de = toDeference;
+
+					memory::writeUInt8(address, opcode);
+
+					// expected
+					memory::writeUInt8(toDeference, expected);
+
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.a;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
+
+				TEST_METHOD(Test_ld_a_nn)
+				{
+					const uint8_t opcode = 0xfa;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t address = rand() % 0xffff;
+					const uint8_t toDeference = rand() % 0xffff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+					cpu::registers.de = toDeference;
+
+					memory::writeUInt8(address, opcode);
+
+					// expected
+					memory::writeUInt8(toDeference, expected);
+
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = cpu::registers.a;
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
+
 				TEST_METHOD(Test_ld_a_hl)
 				{
 					const uint8_t opcode = 0x7e;

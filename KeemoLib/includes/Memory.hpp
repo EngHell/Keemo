@@ -41,6 +41,7 @@ namespace KeemoLib
 
 		uint8_t readUInt8(const uint16_t address);
 		uint16_t readUInt16(const uint16_t address);
+		void writeUInt16(const uint16_t address, const uint16_t value);
 		void writeUInt8(const uint16_t address, const uint8_t value);
 	}
 }
