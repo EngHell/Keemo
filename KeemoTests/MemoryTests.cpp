@@ -246,6 +246,25 @@ namespace KeemoTests
 				// sort arround bugs and some output as there isnt any output from this assert
 				Assert::IsTrue(actual == expected, L"actual is diferent from expected");
 			}
+
+			TEST_METHOD(Test16BitWrite)
+			{
+				const uint16_t address = rand() % 0xffff;
+				const uint16_t expected = rand() % 0xffff;
+				const uint8_t expected_first_byte = expected >> 8;
+				const uint8_t expected_second_byte = expected & 0xff;
+
+				using namespace KeemoLib;
+
+				memory::writeUInt16(address, expected);
+				//memory::writeUInt8(address + 1, second_byte);
+
+				const uint8_t actual_first_byte = memory::readUInt8(address);
+				const uint8_t actual_second_byte = memory::readUInt8(address + 1);
+
+				Assert::AreEqual(expected_first_byte, actual_first_byte);
+				Assert::AreEqual(expected_second_byte, actual_second_byte);
+			}
 		};
 	}
 }
