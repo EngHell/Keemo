@@ -282,6 +282,11 @@ void cpu::step()
 	case 0x36:
 		op::ld_hl_n();
 		break;
+
+	case 0x02:
+		op::ld_bc_a();
+		break;
+
 	default:
 		op::NOP();
 		break;
@@ -705,6 +710,14 @@ void cpu::op::ld_hl_l()
 void cpu::op::ld_hl_n()
 {
 	memory::writeUInt8(registers.hl, memory::readUInt8(++registers.pc));
+}
+
+/*
+* LD (BC),r2
+*/
+void cpu::op::ld_bc_a()
+{
+	memory::writeUInt8(registers.bc, registers.a);
 }
 
 /*
