@@ -230,6 +230,9 @@ void cpu::step()
 		/*
 		* LD L,r2
 		*/
+	case 0x6f:
+		op::ld_l_a();
+		break;
 	case 0x68:
 		op::ld_l_b();
 		break;
@@ -618,6 +621,11 @@ void cpu::op::ld_h_hl()
 /*
 * LD L,r2
 */
+void cpu::op::ld_l_a()
+{
+	registers.l = registers.a;
+}
+
 void cpu::op::ld_l_b()
 {
 	registers.l = registers.b;
