@@ -186,6 +186,11 @@ namespace KeemoLib
 
 			void ld_ff_c_a();
 
+			/*
+			* LDX r1,r2
+			*/
+			void ldd_a_hl();
+
 			void NOP();
 		}
 	}

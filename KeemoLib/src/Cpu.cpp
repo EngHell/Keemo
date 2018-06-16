@@ -315,6 +315,13 @@ void cpu::step()
 		op::ld_ff_c_a();
 		break;
 
+		/*
+		* LDX r1,r2
+		*/
+	case 0x3a:
+		op::ldd_a_hl();
+		break;
+
 	default:
 		op::NOP();
 		break;
@@ -779,6 +786,15 @@ void cpu::op::ld_ff_c_a()
 {
 	memory::writeUInt8(0xff00 + registers.c, registers.a);
 }
+
+/*
+* LDX r1,r2
+*/
+void cpu::op::ldd_a_hl()
+{
+	registers.a = memory::readUInt8(registers.hl--);
+}
+
 
 /*
  * NOP
