@@ -159,7 +159,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x7f;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -183,7 +183,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x78;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -207,7 +207,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x79;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -231,7 +231,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x7a;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -255,7 +255,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x7b;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -279,7 +279,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x7c;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -303,7 +303,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x7d;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -327,8 +327,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x0a;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t toDeference = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t toDeference = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -355,8 +355,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x1a;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t toDeference = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t toDeference = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -384,8 +384,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0xfa;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t toDeference = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t toDeference = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -412,8 +412,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x7e;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t hl = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t hl = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -439,7 +439,7 @@ namespace KeemoTests
 				TEST_METHOD(Test_ld_a_n)
 				{
 					const uint8_t opcode = 0x3e;
-					const uint8_t address = rand() % 0xfffe;
+					const uint16_t address = rand() % 0xfffe;
 					const uint8_t expected = rand() % 0xff;
 
 					using namespace KeemoLib;
@@ -465,7 +465,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x47;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -489,7 +489,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x40;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -513,7 +513,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x41;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -537,7 +537,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x42;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -561,7 +561,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x43;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -585,7 +585,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x44;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -609,7 +609,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x45;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -633,8 +633,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x46;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t hl = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t hl = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -661,7 +661,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x4f;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -685,7 +685,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x48;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -709,7 +709,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x49;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -733,7 +733,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x4a;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -757,7 +757,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x4b;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -781,7 +781,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x4c;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -805,7 +805,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x4d;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -829,8 +829,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x4e;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t hl = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t hl = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -857,7 +857,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x57;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -881,7 +881,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x50;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -905,7 +905,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x51;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -929,7 +929,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x52;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -953,7 +953,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x53;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -977,7 +977,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x54;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1001,7 +1001,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x55;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1025,8 +1025,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x56;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t hl = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t hl = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1056,7 +1056,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x5f;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1080,7 +1080,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x58;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1104,7 +1104,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x59;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1128,7 +1128,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x5a;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1152,7 +1152,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x5b;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1176,7 +1176,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x5c;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1200,7 +1200,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x5d;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1224,8 +1224,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x5e;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t hl = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t hl = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1255,7 +1255,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x67;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1279,7 +1279,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x60;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1303,7 +1303,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x61;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1327,7 +1327,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x62;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1351,7 +1351,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x63;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1375,7 +1375,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x64;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1399,7 +1399,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x65;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1423,8 +1423,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x66;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t hl = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t hl = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1455,7 +1455,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x6f;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1479,7 +1479,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x68;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1503,7 +1503,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x69;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1527,7 +1527,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x6a;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1551,7 +1551,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x6b;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1575,7 +1575,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x6c;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1599,7 +1599,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x6d;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1623,8 +1623,8 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x6e;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
-					const uint8_t hl = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
+					const uint16_t hl = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1654,7 +1654,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x77;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1678,7 +1678,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x70;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1702,7 +1702,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x71;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1726,7 +1726,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x72;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1750,7 +1750,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x73;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1774,7 +1774,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x74;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1798,7 +1798,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x75;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1822,7 +1822,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x36;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1846,7 +1846,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x02;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
@@ -1870,7 +1870,7 @@ namespace KeemoTests
 				{
 					const uint8_t opcode = 0x12;
 					const uint8_t expected = rand() % 0xff;
-					const uint8_t address = rand() % 0xffff;
+					const uint16_t address = rand() % 0xffff;
 
 					using namespace KeemoLib;
 
