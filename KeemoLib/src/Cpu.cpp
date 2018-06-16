@@ -258,6 +258,9 @@ void cpu::step()
 		/*
 		* LD L,r2
 		*/
+	case 0x77:
+		op::ld_hl_a();
+		break;
 	case 0x70:
 		op::ld_hl_b();
 		break;
@@ -664,6 +667,11 @@ void cpu::op::ld_l_hl()
 /*
 * LD (HL),r2
 */
+void cpu::op::ld_hl_a()
+{
+	memory::writeUInt8(registers.hl, registers.a);
+}
+
 void cpu::op::ld_hl_b()
 {
 	memory::writeUInt8(registers.hl, registers.b);
