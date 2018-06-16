@@ -89,6 +89,9 @@ void cpu::step()
 		/*
 		 * LD B,r2
 		 */
+	case 0x47:
+		op::ld_b_a();
+		break;
 	case 0x40:
 		op::ld_b_b();
 		break;
@@ -387,6 +390,11 @@ void cpu::op::ld_a_nn()
 /*
 * LD B,r2
 */
+void cpu::op::ld_b_a()
+{
+	registers.b = registers.a;
+}
+
 void cpu::op::ld_b_b()
 {
 	registers.b = registers.b;
