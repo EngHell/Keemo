@@ -89,6 +89,10 @@ void cpu::step()
 	case 0x7e:
 		op::ld_a_hl();
 		break;
+	case 0xf2:
+		op::ld_a_ff_c();
+		break;
+
 		/*
 		 * LD B,r2
 		 */
@@ -425,6 +429,11 @@ void cpu::op::ld_a_nn()
 	registers.a = memory::readUInt8(memory::readUInt16(++registers.pc));
 	//one more plus as we take the two adjacent
 	registers.pc++;
+}
+
+void cpu::op::ld_a_ff_c()
+{
+	registers.a = memory::readUInt8(0xff00 + registers.c);
 }
 
 /*
