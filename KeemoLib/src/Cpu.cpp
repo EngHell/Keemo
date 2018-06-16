@@ -80,6 +80,9 @@ void cpu::step()
 	case 0x1a:
 		op::ld_a_de();
 		break;
+	case 0x3e:
+		op::ld_a_n();
+		break;
 	case 0xfa:
 		op::ld_a_nn();
 		break;
@@ -166,9 +169,6 @@ void cpu::step()
 		break;
 	case 0x56:
 		op::ld_d_hl();
-		break;
-	case 0x3e:
-		op::ld_a_n();
 		break;
 
 		/**
