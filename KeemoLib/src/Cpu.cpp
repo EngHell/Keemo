@@ -374,7 +374,7 @@ void cpu::op::ld_a_hl()
 
 void cpu::op::ld_a_n()
 {
-	registers.a = registers.pc;
+	registers.a = memory::readUInt8(++registers.pc);
 }
 
 void cpu::op::ld_a_nn()
