@@ -184,6 +184,8 @@ namespace KeemoLib
 
 			void ld_nn_a();
 
+			void ld_ff_c_a();
+
 			void NOP();
 		}
 	}

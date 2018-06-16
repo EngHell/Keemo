@@ -308,6 +308,13 @@ void cpu::step()
 		op::ld_nn_a();
 		break;
 
+	/*
+	* LD (c),r2
+	*/
+	case 0xe2:
+		op::ld_ff_c_a();
+		break;
+
 	default:
 		op::NOP();
 		break;
@@ -763,6 +770,14 @@ void cpu::op::ld_nn_a()
 
 	//this since this is a 3 byte op, so we do 2 inside and the last ++ is done in cpu::step()
 	registers.pc++;
+}
+
+/*
+* LD (c),r2
+*/
+void cpu::op::ld_ff_c_a()
+{
+	memory::writeUInt8(0xff00 + registers.c, registers.a);
 }
 
 /*

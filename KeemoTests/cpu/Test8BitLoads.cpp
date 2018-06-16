@@ -1943,6 +1943,36 @@ namespace KeemoTests
 
 					Assert::IsTrue((address + 3) == cpu::registers.pc);
 				}
+
+				/*
+				 * LD (C), r2
+				 */
+				TEST_METHOD(Test_ld_ff_c_a)
+				{
+					const uint8_t opcode = 0xe2;
+					const uint16_t address = rand() % 0xffff;
+					const uint8_t expected = rand() % 0xff;
+					const uint8_t c = rand() % 0xff;
+
+					using namespace KeemoLib;
+
+					cpu::registers.pc = address;
+
+					memory::writeUInt8(address, opcode);
+					cpu::registers.c = c;
+					cpu::registers.a = expected;
+
+
+
+					cpu::step();
+
+					// destination register
+					const uint8_t actual = memory::readUInt8(0xff00 + c);
+
+					Assert::AreEqual(expected, actual);
+
+					Assert::IsTrue((address + 1) == cpu::registers.pc);
+				}
 			};
 		}
 	}
