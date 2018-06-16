@@ -297,6 +297,13 @@ void cpu::step()
 		op::ld_de_a();
 		break;
 
+	/*
+	* LD (nn),r2
+	*/
+	case 0xea:
+		op::ld_nn_a();
+		break;
+
 	default:
 		op::NOP();
 		break;
@@ -736,6 +743,17 @@ void cpu::op::ld_bc_a()
 void cpu::op::ld_de_a()
 {
 	memory::writeUInt8(registers.de, registers.a);
+}
+
+/*
+* LD (nn),r2
+*/
+void cpu::op::ld_nn_a()
+{
+	memory::writeUInt8(memory::readUInt16(++registers.pc), registers.a);
+
+	//this since this is a 3 byte op, so we do 2 inside and the last ++ is done in cpu::step()
+	registers.pc++;
 }
 
 /*
