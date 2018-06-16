@@ -327,6 +327,9 @@ void cpu::step()
 	case 0x2a:
 		op::ldi_a_hl();
 		break;
+	case 0x22:
+		op::ldi_hl_a();
+		break;
 
 	default:
 		op::NOP();
@@ -810,6 +813,12 @@ void cpu::op::ldi_a_hl()
 {
 	registers.a = memory::readUInt8(registers.hl++);
 }
+
+void cpu::op::ldi_hl_a()
+{
+	memory::writeUInt8(registers.hl++, registers.a);
+}
+
 
 
 /*
