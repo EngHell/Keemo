@@ -321,6 +321,9 @@ void cpu::step()
 	case 0x3a:
 		op::ldd_a_hl();
 		break;
+	case 0x2a:
+		op::ldi_a_hl();
+		break;
 
 	default:
 		op::NOP();
@@ -793,6 +796,11 @@ void cpu::op::ld_ff_c_a()
 void cpu::op::ldd_a_hl()
 {
 	registers.a = memory::readUInt8(registers.hl--);
+}
+
+void cpu::op::ldi_a_hl()
+{
+	registers.a = memory::readUInt8(registers.hl++);
 }
 
 

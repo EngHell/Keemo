@@ -190,6 +190,7 @@ namespace KeemoLib
 			* LDX r1,r2
 			*/
 			void ldd_a_hl();
+			void ldi_a_hl();
 
 			void NOP();
 		}
