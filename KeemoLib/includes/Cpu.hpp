@@ -121,6 +121,7 @@ namespace KeemoLib
 			void ld_b_h();
 			void ld_b_l();
 			void ld_b_hl();
+			void ld_c_a();
 			void ld_c_b();
 			void ld_c_c();
 			void ld_c_d();
