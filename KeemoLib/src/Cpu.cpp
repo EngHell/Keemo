@@ -256,7 +256,7 @@ void cpu::step()
 		break;
 
 		/*
-		* LD L,r2
+		* LD (HL),r2
 		*/
 	case 0x77:
 		op::ld_hl_a();
@@ -283,8 +283,18 @@ void cpu::step()
 		op::ld_hl_n();
 		break;
 
+	/*
+	* LD (BC),r2
+	*/
 	case 0x02:
 		op::ld_bc_a();
+		break;
+
+	/*
+	* LD (DE),r2
+	*/
+	case 0x12:
+		op::ld_de_a();
 		break;
 
 	default:
@@ -718,6 +728,14 @@ void cpu::op::ld_hl_n()
 void cpu::op::ld_bc_a()
 {
 	memory::writeUInt8(registers.bc, registers.a);
+}
+
+/*
+* LD (DE),r2
+*/
+void cpu::op::ld_de_a()
+{
+	memory::writeUInt8(registers.de, registers.a);
 }
 
 /*
