@@ -2077,7 +2077,7 @@ namespace KeemoTests
 					Assert::IsTrue((address + 1) == cpu::registers.pc);
 				}
 
-				TEST_METHOD(Test_ldh_n_a)
+				TEST_METHOD(Test_ld_ff_n_a)
 				{
 					const uint8_t opcode = 0xe0;
 					const uint16_t address = rand() % 0xffff;
