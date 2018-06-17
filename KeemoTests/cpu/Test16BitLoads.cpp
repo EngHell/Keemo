@@ -145,6 +145,42 @@ namespace KeemoTests
 					// same here
 					Assert::IsTrue((address+3) == cpu::registers.pc);
 				}
+
+				TEST_METHOD(Test_ld_sp_hl)
+				{
+					srand(time(nullptr));
+
+					// Usual initialization
+					const uint8_t opcode = 0xf9;
+					const uint16_t expected = rand() % 0xffff;
+					// 0 cuz this a 1 byte operand lets make sure we have room
+					// for all the op code
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 0;
+					const uint16_t address = rand() % (0xffff-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					cpu::registers.hl = expected;
+
+					// emulation step
+					cpu::step();
+
+					const uint16_t actual = cpu::registers.sp;
+
+					// due to a Bug with visual studio we have to use IsTrue :)
+					Assert::IsTrue(actual == expected);
+
+					// same here
+					Assert::IsTrue((address+1) == cpu::registers.pc);
+				}
 			};
 		}
 	}

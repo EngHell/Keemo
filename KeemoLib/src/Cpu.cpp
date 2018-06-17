@@ -350,8 +350,15 @@ void cpu::step()
 	case 0x21:
 		op::ld_hl_nn();
 		break;
+
+	/*
+	* LD SP, r2
+	*/
 	case 0x31:
 		op::ld_sp_nn();
+		break;
+	case 0xf9:
+		op::ld_sp_hl();
 		break;
 
 	default:

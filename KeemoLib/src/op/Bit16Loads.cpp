@@ -33,5 +33,9 @@ void cpu::op::ld_sp_nn()
 	++registers.pc;
 }
 
+void cpu::op::ld_sp_hl()
+{
+	registers.sp = registers.hl;
+}
 
 
