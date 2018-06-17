@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de origen\Op">
+      <UniqueIdentifier>{1b6c0617-6b29-477a-9185-81d9aa42bb67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -30,16 +33,25 @@
     <ClInclude Include="includes\Memory.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="src\op\Op.hpp">
+      <Filter>Archivos de origen\Op</Filter>
+    </ClInclude>
+    <ClInclude Include="src\op\Bit8Loads.hpp">
+      <Filter>Archivos de origen\Op</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="src\Memory.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
     <ClCompile Include="src\Cpu.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\Memory.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="src\op\Bit8Loads.cpp">
+      <Filter>Archivos de origen\Op</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
