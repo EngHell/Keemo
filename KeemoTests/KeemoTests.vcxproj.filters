@@ -44,5 +44,8 @@
     <ClCompile Include="cpu\Test8BitLoads.cpp">
       <Filter>Tests\Cpu\OpCodes</Filter>
     </ClCompile>
+    <ClCompile Include="cpu\Test16BitLoads.cpp">
+      <Filter>Tests\Cpu\OpCodes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -338,6 +338,13 @@ void cpu::step()
 		op::ld_a_ff_n();
 		break;
 
+	/*
+	* LD n,nn
+	*/
+	case 0x01:
+		op::ld_bc_nn();
+		break;
+
 	default:
 		op::NOP();
 		break;
