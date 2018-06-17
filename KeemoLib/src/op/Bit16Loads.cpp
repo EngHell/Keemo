@@ -21,3 +21,10 @@ void cpu::op::ld_de_nn()
 	++registers.pc;
 }
 
+void cpu::op::ld_hl_nn()
+{
+	registers.hl = memory::readUInt16(++registers.pc);
+	++registers.pc;
+}
+
+

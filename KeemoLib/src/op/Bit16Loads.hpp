@@ -9,6 +9,7 @@ namespace KeemoLib
 		{
 			void ld_bc_nn();
 			void ld_de_nn();
+			void ld_hl_nn();
 		}
 	}
 }
