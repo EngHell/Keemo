@@ -8,6 +8,7 @@ namespace KeemoLib
 		namespace op
 		{
 			void ld_bc_nn();
+			void ld_de_nn();
 		}
 	}
 }
