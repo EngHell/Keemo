@@ -29,22 +29,22 @@ void cpu::step()
 		 * LD nn,n
 		 */
 	case 0x06:
-		op::LD_B_n();
+		op::ld_b_n();
 		break;
 	case 0x0e:
-		op::LD_C_n();
+		op::ld_c_n();
 		break;
 	case 0x16:
-		op::LD_D_n();
+		op::ld_d_n();
 		break;
 	case 0x1e:
-		op::LD_E_n();
+		op::ld_e_n();
 		break;
 	case 0x26:
-		op::LD_H_n();
+		op::ld_h_n();
 		break;
 	case 0x2e:
-		op::LD_L_n();
+		op::ld_l_n();
 		break;
 
 		/***********************************************************************

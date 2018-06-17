@@ -39,6 +39,9 @@
     <ClInclude Include="src\op\Bit8Loads.hpp">
       <Filter>Archivos de origen\Op</Filter>
     </ClInclude>
+    <ClInclude Include="src\op\Bit16Loads.hpp">
+      <Filter>Archivos de origen\Op</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -51,6 +54,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="src\op\Bit8Loads.cpp">
+      <Filter>Archivos de origen\Op</Filter>
+    </ClCompile>
+    <ClCompile Include="src\op\Bit16Loads.cpp">
       <Filter>Archivos de origen\Op</Filter>
     </ClCompile>
   </ItemGroup>

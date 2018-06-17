@@ -13,32 +13,32 @@ using namespace KeemoLib;
  * 
  * nn
  */
-void cpu::op::LD_B_n()
+void cpu::op::ld_b_n()
 {
 	cpu::registers.b = memory::readUInt8(++registers.pc);
 }
 
-void cpu::op::LD_C_n()
+void cpu::op::ld_c_n()
 {
 	registers.c = memory::readUInt8(++registers.pc);
 }
 
-void cpu::op::LD_D_n()
+void cpu::op::ld_d_n()
 {
 	registers.d = memory::readUInt8(++registers.pc);
 }
 
-void cpu::op::LD_E_n()
+void cpu::op::ld_e_n()
 {
 	registers.e = memory::readUInt8(++registers.pc);
 }
 
-void cpu::op::LD_H_n()
+void cpu::op::ld_h_n()
 {
 	registers.h = memory::readUInt8(++registers.pc);
 }
 
-void cpu::op::LD_L_n()
+void cpu::op::ld_l_n()
 {
 	registers.l = memory::readUInt8(++registers.pc);
 }

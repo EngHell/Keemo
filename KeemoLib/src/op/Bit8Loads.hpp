@@ -7,12 +7,12 @@ namespace KeemoLib
 	{
 		namespace op
 		{
-			void LD_B_n();
-			void LD_C_n();
-			void LD_D_n();
-			void LD_E_n();
-			void LD_H_n();
-			void LD_L_n();
+			void ld_b_n();
+			void ld_c_n();
+			void ld_d_n();
+			void ld_e_n();
+			void ld_h_n();
+			void ld_l_n();
 			// LD r1,r2
 			void ld_a_a();
 			void ld_a_b();

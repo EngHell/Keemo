@@ -150,6 +150,7 @@
     <ClInclude Include="includes\Cpu.hpp" />
     <ClInclude Include="includes\KeemoDefines.h" />
     <ClInclude Include="includes\Memory.hpp" />
+    <ClInclude Include="src\op\Bit16Loads.hpp" />
     <ClInclude Include="src\op\Bit8Loads.hpp" />
     <ClInclude Include="src\op\Op.hpp" />
     <ClInclude Include="stdafx.h" />
@@ -158,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="src\Cpu.cpp" />
     <ClCompile Include="src\Memory.cpp" />
+    <ClCompile Include="src\op\Bit16Loads.cpp" />
     <ClCompile Include="src\op\Bit8Loads.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
