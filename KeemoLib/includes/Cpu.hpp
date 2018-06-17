@@ -193,6 +193,7 @@ namespace KeemoLib
 			void ldd_hl_a();
 			void ldi_a_hl();
 			void ldi_hl_a();
+			void ldh_n_a();
 
 			void NOP();
 		}
