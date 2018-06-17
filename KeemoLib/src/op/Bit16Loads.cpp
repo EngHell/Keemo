@@ -27,4 +27,11 @@ void cpu::op::ld_hl_nn()
 	++registers.pc;
 }
 
+void cpu::op::ld_sp_nn()
+{
+	registers.sp = memory::readUInt16(++registers.pc);
+	++registers.pc;
+}
+
+
 
