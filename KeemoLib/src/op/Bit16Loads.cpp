@@ -38,4 +38,21 @@ void cpu::op::ld_sp_hl()
 	registers.sp = registers.hl;
 }
 
+void cpu::op::ld_hl_sp_n()
+{
+	const uint16_t n = memory::readUInt8(++registers.pc);
+	const uint16_t result = registers.sp + n;
+
+	registers.hl = result;
+
+	CLEAR_FLAGS( Z | N | H | C);
+
+	if(((registers.sp & 0xff) + (n & 0xff)) > 0xff)
+		SET_FLAGS(C);
+
+	if(((registers.sp & 0x0f) + (n & 0x0f)) > 0x0f)
+		SET_FLAGS(H);
+}
+
+
 

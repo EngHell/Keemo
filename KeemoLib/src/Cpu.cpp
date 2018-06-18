@@ -287,6 +287,9 @@ void cpu::step()
 	case 0x36:
 		op::ld_hl_n();
 		break;
+	case 0xf8:
+		op::ld_hl_sp_n();
+		break;
 
 	/*
 	* LD (BC),r2

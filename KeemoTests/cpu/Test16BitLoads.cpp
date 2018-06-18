@@ -15,10 +15,12 @@ namespace KeemoTests
 			TEST_CLASS(Test16BitsLoads)
 			{
 			public:
-				TEST_METHOD(Test_ld_bc_nn)
+				TEST_CLASS_INITIALIZE(Test_init)
 				{
 					srand(time(nullptr));
-
+				}
+				TEST_METHOD(Test_ld_bc_nn)
+				{
 					// Usual initialization
 					const uint8_t opcode = 0x01;
 					const uint16_t expected = rand() % 0xffff;
@@ -180,6 +182,291 @@ namespace KeemoTests
 
 					// same here
 					Assert::IsTrue((address+1) == cpu::registers.pc);
+				}
+
+				BEGIN_TEST_METHOD_ATTRIBUTE(Test_ld_hl_sp_n_1_random)
+					TEST_DESCRIPTION(L"Testing with random values so no way to test the specified flags. just the Z and N flag")
+				END_TEST_METHOD_ATTRIBUTE()
+
+				TEST_METHOD(Test_ld_hl_sp_n_1_random)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xf8;
+					
+					const uint8_t n = rand() % 0xff;
+					const uint16_t sp = (rand() % (0xff00 - 0xf000)) + 0xf000;
+
+					const uint16_t expected = n + sp;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 1;
+
+					// the limit here is just to not mess with the instructions
+					// from the opcode
+					const uint16_t address = rand() % (0xf000-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt8(address+1, n);
+					cpu::registers.sp = sp;
+
+					// emulation step
+					cpu::step();
+
+					const uint16_t actual = cpu::registers.hl;
+
+					// due to a Bug with visual studio we have to use IsTrue :)
+					Assert::IsTrue(actual == expected);
+
+					// flag check
+					const uint8_t Z = (cpu::Z & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::Z), Z);
+
+					const uint8_t N = (cpu::N & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::N), N);
+
+					// same here
+					// this here as oplength - 1 from his value
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
+				}
+
+				BEGIN_TEST_METHOD_ATTRIBUTE(Test_ld_hl_sp_n_2)
+					TEST_DESCRIPTION(L"Testing with value that should clear both C and H")
+				END_TEST_METHOD_ATTRIBUTE()
+				TEST_METHOD(Test_ld_hl_sp_n_2)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xf8;
+					
+					const uint8_t n = 0x01;
+					const uint16_t sp = 0x0001;
+
+					const uint16_t expected = n + sp;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 1;
+
+					// the limit here is just to not mess with the instructions
+					// from the opcode
+					const uint16_t address = rand() % (0xf000-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt8(address+1, n);
+					cpu::registers.sp = sp;
+
+					// emulation step
+					cpu::step();
+
+					const uint16_t actual = cpu::registers.hl;
+
+					// due to a Bug with visual studio we have to use IsTrue :)
+					Assert::IsTrue(actual == expected);
+
+					// flag check
+					const uint8_t Z = (cpu::Z & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::Z), Z);
+
+					const uint8_t N = (cpu::N & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::N), N);
+
+					const uint8_t H = (cpu::H & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::H), H);
+
+					const uint8_t C = (cpu::C & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::C), C);
+
+					// same here
+					// this here as oplength - 1 from his value
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
+				}
+
+				BEGIN_TEST_METHOD_ATTRIBUTE(Test_ld_hl_sp_n_3)
+					TEST_DESCRIPTION(L"Testing with value that should set C AND clear H")
+				END_TEST_METHOD_ATTRIBUTE()
+				TEST_METHOD(Test_ld_hl_sp_n_3)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xf8;
+					
+					const uint8_t n = 0xf1;
+					const uint16_t sp = 0x01f1;
+
+					const uint16_t expected = n + sp;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 1;
+
+					// the limit here is just to not mess with the instructions
+					// from the opcode
+					const uint16_t address = rand() % (0xf000-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt8(address+1, n);
+					cpu::registers.sp = sp;
+
+					// emulation step
+					cpu::step();
+
+					const uint16_t actual = cpu::registers.hl;
+
+					// due to a Bug with visual studio we have to use IsTrue :)
+					Assert::IsTrue(actual == expected);
+
+					// flag check
+					const uint8_t Z = (cpu::Z & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::Z), Z);
+
+					const uint8_t N = (cpu::N & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::N), N);
+
+					const uint8_t H = (cpu::H & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::H), H);
+
+					const uint8_t C = (cpu::C & cpu::registers.f);
+					Assert::AreEqual(uint8_t(cpu::C), C);
+
+					// same here
+					// this here as oplength - 1 from his value
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
+				}
+
+				BEGIN_TEST_METHOD_ATTRIBUTE(Test_ld_hl_sp_n_4)
+					TEST_DESCRIPTION(L"Testing with value that should set H AND clear C")
+				END_TEST_METHOD_ATTRIBUTE()
+				TEST_METHOD(Test_ld_hl_sp_n_4)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xf8;
+					
+					const uint8_t n = 0x21;
+					const uint16_t sp = 0x010f;
+
+					const uint16_t expected = n + sp;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 1;
+
+					// the limit here is just to not mess with the instructions
+					// from the opcode
+					const uint16_t address = rand() % (0xf000-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt8(address+1, n);
+					cpu::registers.sp = sp;
+
+					// emulation step
+					cpu::step();
+
+					const uint16_t actual = cpu::registers.hl;
+
+					// due to a Bug with visual studio we have to use IsTrue :)
+					Assert::IsTrue(actual == expected);
+
+					// flag check
+					const uint8_t Z = (cpu::Z & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::Z), Z);
+
+					const uint8_t N = (cpu::N & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::N), N);
+
+					const uint8_t H = (cpu::H & cpu::registers.f);
+					Assert::AreEqual(uint8_t(cpu::H), H);
+
+					const uint8_t C = (cpu::C & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::C), C);
+
+					// same here
+					// this here as oplength - 1 from his value
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
+				}
+
+				BEGIN_TEST_METHOD_ATTRIBUTE(Test_ld_hl_sp_n_5)
+					TEST_DESCRIPTION(L"Testing with value that should set H AND C")
+				END_TEST_METHOD_ATTRIBUTE()
+				TEST_METHOD(Test_ld_hl_sp_n_5)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xf8;
+					
+					const uint8_t n = 0xf1;
+					const uint16_t sp = 0x010f;
+
+					const uint16_t expected = n + sp;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 1;
+
+					// the limit here is just to not mess with the instructions
+					// from the opcode
+					const uint16_t address = rand() % (0xf000-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt8(address+1, n);
+					cpu::registers.sp = sp;
+
+					// emulation step
+					cpu::step();
+
+					const uint16_t actual = cpu::registers.hl;
+
+					// due to a Bug with visual studio we have to use IsTrue :)
+					Assert::IsTrue(actual == expected);
+
+					// flag check
+					const uint8_t Z = (cpu::Z & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::Z), Z);
+
+					const uint8_t N = (cpu::N & cpu::registers.f);
+					Assert::AreNotEqual(uint8_t(cpu::N), N);
+
+					const uint8_t H = (cpu::H & cpu::registers.f);
+					Assert::AreEqual(uint8_t(cpu::H), H);
+
+					const uint8_t C = (cpu::C & cpu::registers.f);
+					Assert::AreEqual(uint8_t(cpu::C), C);
+
+					// same here
+					// this here as oplength - 1 from his value
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
 				}
 			};
 		}

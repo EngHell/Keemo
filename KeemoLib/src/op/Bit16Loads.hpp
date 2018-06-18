@@ -12,6 +12,7 @@ namespace KeemoLib
 			void ld_hl_nn();
 			void ld_sp_nn();
 			void ld_sp_hl();
+			void ld_hl_sp_n();
 		}
 	}
 }

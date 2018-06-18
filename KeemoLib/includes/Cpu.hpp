@@ -95,5 +95,15 @@ namespace KeemoLib
 
 			void NOP();
 		}
+
+		inline void CLEAR_FLAGS(uint8_t flags)
+		{
+			registers.f &= ~(flags);
+		}
+
+		inline void SET_FLAGS(uint8_t flags)
+		{
+			registers.f |= (flags);
+		}
 	}
 }
