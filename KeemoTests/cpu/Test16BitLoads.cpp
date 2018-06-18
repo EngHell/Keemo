@@ -19,6 +19,7 @@ namespace KeemoTests
 				{
 					srand(time(nullptr));
 				}
+
 				TEST_METHOD(Test_ld_bc_nn)
 				{
 					// Usual initialization
@@ -51,7 +52,7 @@ namespace KeemoTests
 
 				TEST_METHOD(Test_ld_de_nn)
 				{
-					srand(time(nullptr));
+					
 
 					// Usual initialization
 					const uint8_t opcode = 0x11;
@@ -84,7 +85,7 @@ namespace KeemoTests
 
 				TEST_METHOD(Test_ld_hl_nn)
 				{
-					srand(time(nullptr));
+					
 
 					// Usual initialization
 					const uint8_t opcode = 0x21;
@@ -117,7 +118,7 @@ namespace KeemoTests
 
 				TEST_METHOD(Test_ld_sp_nn)
 				{
-					srand(time(nullptr));
+					
 
 					// Usual initialization
 					const uint8_t opcode = 0x31;
@@ -150,7 +151,7 @@ namespace KeemoTests
 
 				TEST_METHOD(Test_ld_sp_hl)
 				{
-					srand(time(nullptr));
+					
 
 					// Usual initialization
 					const uint8_t opcode = 0xf9;
