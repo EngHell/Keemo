@@ -54,5 +54,10 @@ void cpu::op::ld_hl_sp_n()
 		SET_FLAGS(H);
 }
 
+void cpu::op::ld_nn_sp()
+{
+	memory::writeUInt16(++registers.pc, registers.sp);
+	++registers.pc;
+}
 
 

@@ -311,6 +311,9 @@ void cpu::step()
 	case 0xea:
 		op::ld_nn_a();
 		break;
+	case 0x08:
+		op::ld_nn_sp();
+		break;
 
 	/*
 	* LD (c),r2

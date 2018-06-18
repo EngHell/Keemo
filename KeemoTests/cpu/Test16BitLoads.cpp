@@ -469,6 +469,39 @@ namespace KeemoTests
 					// this here as oplength - 1 from his value
 					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
 				}
+
+				TEST_METHOD(Test_ld_nn_sp)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0x08;
+					const uint16_t expected = rand() % 0xffff;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 2;
+
+					const uint16_t address = rand() % (0xffff-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					cpu::registers.sp = expected;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = memory::readUInt16(address+1);
+					Assert::IsTrue(actual == expected);
+
+					// oplenght is 1 less than it's real value so we plus 1 here
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
+				}
 			};
 		}
 	}
