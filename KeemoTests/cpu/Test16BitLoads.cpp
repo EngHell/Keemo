@@ -48,6 +48,9 @@ namespace KeemoTests
 
 					// same here
 					Assert::IsTrue((address+3) == cpu::registers.pc);
+
+
+					Assert::AreEqual( uint16_t(address+3), cpu::registers.pc);
 				}
 
 				TEST_METHOD(Test_ld_de_nn)
