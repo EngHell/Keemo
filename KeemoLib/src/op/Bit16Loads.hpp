@@ -14,6 +14,10 @@ namespace KeemoLib
 			void ld_sp_hl();
 			void ld_hl_sp_n();
 			void ld_nn_sp();
+			void push_af();
+			void push_bc();
+			void push_de();
+			void push_hl();
 		}
 	}
 }

@@ -502,6 +502,166 @@ namespace KeemoTests
 					// oplenght is 1 less than it's real value so we plus 1 here
 					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
 				}
+
+				TEST_METHOD(Test_push_af)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xf5;
+					const uint16_t expected = rand() % 0xffff;
+					const uint16_t sp = rand() % 0xffff;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 0;
+
+					const uint16_t address = rand() % (0xffff-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					cpu::registers.sp = sp;
+
+					cpu::registers.af = expected;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = memory::readUInt16(sp-2);
+					Assert::IsTrue(actual == expected);
+
+					// now we check the sp decrement
+					const uint16_t actual_sp = cpu::registers.sp;
+					Assert::IsTrue(actual_sp == (sp-2));
+
+					// oplenght is 1 less than it's real value so we plus 1 here
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_push_bc)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xc5;
+					const uint16_t expected = rand() % 0xffff;
+					const uint16_t sp = rand() % 0xffff;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 0;
+
+					const uint16_t address = rand() % (0xffff-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					cpu::registers.sp = sp;
+
+					cpu::registers.bc = expected;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = memory::readUInt16(sp-2);
+					Assert::IsTrue(actual == expected);
+
+					// now we check the sp decrement
+					const uint16_t actual_sp = cpu::registers.sp;
+					Assert::IsTrue(actual_sp == (sp-2));
+
+					// oplenght is 1 less than it's real value so we plus 1 here
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_push_de)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xd5;
+					const uint16_t expected = rand() % 0xffff;
+					const uint16_t sp = rand() % 0xffff;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 0;
+
+					const uint16_t address = rand() % (0xffff-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					cpu::registers.sp = sp;
+
+					cpu::registers.de = expected;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = memory::readUInt16(sp-2);
+					Assert::IsTrue(actual == expected);
+
+					// now we check the sp decrement
+					const uint16_t actual_sp = cpu::registers.sp;
+					Assert::IsTrue(actual_sp == (sp-2));
+
+					// oplenght is 1 less than it's real value so we plus 1 here
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
+				}
+
+				TEST_METHOD(Test_push_hl)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xe5;
+					const uint16_t expected = rand() % 0xffff;
+					const uint16_t sp = rand() % 0xffff;
+
+					// the - 1 is due to the nature of modulus operator
+					// since we neaver reach the max number in the range
+					// -------> so length - 1
+					const uint16_t oplength = 0;
+
+					const uint16_t address = rand() % (0xffff-oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					cpu::registers.sp = sp;
+
+					cpu::registers.hl = expected;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = memory::readUInt16(sp-2);
+					Assert::IsTrue(actual == expected);
+
+					// now we check the sp decrement
+					const uint16_t actual_sp = cpu::registers.sp;
+					Assert::IsTrue(actual_sp == (sp-2));
+
+					// oplenght is 1 less than it's real value so we plus 1 here
+					Assert::IsTrue((address+ 1 + oplength) == cpu::registers.pc);
+				}
 			};
 		}
 	}

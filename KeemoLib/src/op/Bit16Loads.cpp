@@ -61,3 +61,29 @@ void cpu::op::ld_nn_sp()
 }
 
 
+void cpu::op::push_af()
+{
+	registers.sp -= 2;
+	memory::writeUInt16(registers.sp, registers.af);
+
+}
+
+void cpu::op::push_bc()
+{
+	registers.sp -= 2;
+	memory::writeUInt16(registers.sp, registers.bc);
+
+}
+
+void cpu::op::push_de()
+{
+	registers.sp -= 2;
+	memory::writeUInt16(registers.sp, registers.de);
+
+}
+
+void cpu::op::push_hl()
+{
+	registers.sp -= 2;
+	memory::writeUInt16(registers.sp, registers.hl);
+}

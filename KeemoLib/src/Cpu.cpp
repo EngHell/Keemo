@@ -367,6 +367,22 @@ void cpu::step()
 		op::ld_sp_hl();
 		break;
 
+	/*
+	 * PUSH nn
+	 */
+	case 0xf5:
+		op::push_af();
+		break;
+	case 0xc5:
+		op::push_bc();
+		break;
+	case 0xd5:
+		op::push_de();
+		break;
+	case 0xe5:
+		op::push_hl();
+		break;
+
 	default:
 		op::NOP();
 		break;
