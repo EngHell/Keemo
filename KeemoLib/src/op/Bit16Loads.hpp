@@ -18,6 +18,10 @@ namespace KeemoLib
 			void push_bc();
 			void push_de();
 			void push_hl();
+			void pop_af();
+			void pop_bc();
+			void pop_de();
+			void pop_hl();
 		}
 	}
 }

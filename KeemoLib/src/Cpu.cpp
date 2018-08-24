@@ -383,6 +383,22 @@ void cpu::step()
 		op::push_hl();
 		break;
 
+	/*
+	 * POP nn
+	 */
+	case 0xf1:
+		op::pop_af();
+		break;
+	case 0xc1:
+		op::pop_bc();
+		break;
+	case 0xd1:
+		op::pop_de();
+		break;
+	case 0xe1:
+		op::pop_hl();
+		break;
+
 	default:
 		op::NOP();
 		break;

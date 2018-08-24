@@ -87,3 +87,27 @@ void cpu::op::push_hl()
 	registers.sp -= 2;
 	memory::writeUInt16(registers.sp, registers.hl);
 }
+
+void cpu::op::pop_af()
+{
+	registers.af = memory::readUInt16(registers.sp);
+	registers.sp += 2;
+}
+
+void cpu::op::pop_bc()
+{
+	registers.bc = memory::readUInt16(registers.sp);
+	registers.sp += 2;
+}
+
+void cpu::op::pop_de()
+{
+	registers.de = memory::readUInt16(registers.sp);
+	registers.sp += 2;
+}
+
+void cpu::op::pop_hl()
+{
+	registers.hl = memory::readUInt16(registers.sp);
+	registers.sp += 2;
+}
