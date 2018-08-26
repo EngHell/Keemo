@@ -85,6 +85,11 @@ namespace KeemoLib
 		extern std::string title;
 
 		/*
+		 * Loads rom and processes all
+		 */
+		bool loadCartridge(std::string path);
+
+		/*
 		 * Loads rom file to memory::rom
 		 */
 		bool loadCartridgeToMemory(std::string path);

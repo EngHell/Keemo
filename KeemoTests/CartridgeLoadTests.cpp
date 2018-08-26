@@ -19,10 +19,6 @@ namespace KeemoTests
 				using namespace KeemoLib;
 
 
-				const int errBuffSize = 250;
-				char* errbuff = new char[errBuffSize];
-
-
 				const bool success = cartridge::loadCartridgeToMemory("roms/tetris.gb");
 				Assert::IsTrue(success);
 
@@ -44,6 +40,37 @@ namespace KeemoTests
 				);
 
 			}
+
+			TEST_METHOD(TestCartridgeLoadToMemoryFail)
+			{
+				using namespace KeemoLib;
+
+
+				const bool success = cartridge::loadCartridgeToMemory("roms/nonexistent.gb");
+				Assert::IsFalse(success);
+
+			}
+
+
+			TEST_METHOD(TestCartridgeLoadTetris)
+			{
+				using namespace KeemoLib;
+
+				char expectedTitle[] = "TETRIS";
+
+				const bool success = cartridge::loadCartridge("roms/tetris.gb");
+
+				Assert::IsTrue(success);
+
+				Assert::AreEqual(expectedTitle, cartridge::title.c_str());
+
+				Assert::AreEqual(
+					static_cast<uint8_t>(cartridge::CartridgeType::Const::rom_only),
+					static_cast<uint8_t>(cartridge::type)
+				);
+
+			}
+
 		};
 	}
 }

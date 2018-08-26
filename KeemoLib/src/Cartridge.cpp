@@ -13,6 +13,23 @@ namespace KeemoLib
 	}
 }
 
+bool KeemoLib::cartridge::loadCartridge(std::string path)
+{
+	bool success = false;
+
+	if(loadCartridgeToMemory(path))
+	{
+		if(readCartridgeType())
+		{
+			readCartrideTitle();
+
+			success = true;
+		}
+	}
+
+	return success;
+}
+
 bool KeemoLib::cartridge::loadCartridgeToMemory(std::string path)
 {
 	bool success = false;
