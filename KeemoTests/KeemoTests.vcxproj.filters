@@ -25,6 +25,9 @@
     <Filter Include="Tests\Cpu\OpCodes">
       <UniqueIdentifier>{adffb86b-4f2a-45bc-a47c-fadd7b5ef053}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tests\Cartridge">
+      <UniqueIdentifier>{c907890a-9afc-429f-b4c1-a5200bf352e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -46,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="cpu\Test16BitLoads.cpp">
       <Filter>Tests\Cpu\OpCodes</Filter>
+    </ClCompile>
+    <ClCompile Include="CartridgeLoadTests.cpp">
+      <Filter>Tests\Cartridge</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

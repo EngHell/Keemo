@@ -42,6 +42,9 @@
     <ClInclude Include="src\op\Bit16Loads.hpp">
       <Filter>Archivos de origen\Op</Filter>
     </ClInclude>
+    <ClInclude Include="includes\Cartridge.hpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -58,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="src\op\Bit16Loads.cpp">
       <Filter>Archivos de origen\Op</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cartridge.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
