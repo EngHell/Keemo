@@ -127,17 +127,6 @@
     <ClCompile Include="ui.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="icon1.ico" />
-    <Image Include="icon2.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Keemo.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="POINTER.cur" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="resource.h" />
     <ClInclude Include="ui.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
