@@ -4,52 +4,123 @@
 
 namespace ui
 {
-	
+}
+
+HWND ui::createMainWindow(HINSTANCE hinst)
+{
+	//create window 1
+
+	WNDCLASSEX windowclassforwindow1;
+	ZeroMemory(&windowclassforwindow1,sizeof(WNDCLASSEX));
+	windowclassforwindow1.cbClsExtra = NULL;
+	windowclassforwindow1.cbSize = sizeof(WNDCLASSEX);
+	windowclassforwindow1.cbWndExtra = NULL;
+	windowclassforwindow1.hbrBackground = (HBRUSH)COLOR_WINDOW;
+	windowclassforwindow1.hCursor = LoadCursor(NULL,IDC_ARROW);
+	windowclassforwindow1.hIcon = NULL;
+	windowclassforwindow1.hIconSm = NULL;
+	windowclassforwindow1.hInstance = hinst;
+	windowclassforwindow1.lpfnWndProc = (WNDPROC)mainWindowProc;
+	windowclassforwindow1.lpszClassName = L"windowclass 1";
+	windowclassforwindow1.lpszMenuName = NULL;
+	windowclassforwindow1.style = CS_HREDRAW | CS_VREDRAW;
+
+	if (!RegisterClassEx(&windowclassforwindow1))
+	{
+		int nResult = GetLastError();
+		MessageBox(NULL,
+				   L"Window class creation failed",
+				   L"Window Class Failed",
+				   MB_ICONERROR);
+
+		return nullptr;
+	}
+
+	HWND handle = CreateWindowEx(NULL,
+								 windowclassforwindow1.lpszClassName,
+								 L"Parent Window",
+								 WS_OVERLAPPEDWINDOW,
+								 200,
+								 150,
+								 640,
+								 480,
+								 NULL,
+								 NULL,
+								 hinst,
+								 NULL /* No Window Creation data */
+	);
+
+	if (!handle)
+	{
+		int nResult = GetLastError();
+
+		MessageBox(NULL,
+				   L"Window creation failed",
+				   L"Window Creation Failed",
+				   MB_ICONERROR);
+
+		return nullptr;
+	}
+
+	return handle;
 }
 
 HWND ui::createDebugWindow(HWND parent, HINSTANCE hinst)
 {
-	WNDCLASSEX wcex;
-	ZeroMemory(&wcex, sizeof(wcex));
+	// create window 2
 
-	wcex.cbSize = sizeof(wcex); // WNDCLASSEX size in bytes
-	wcex.style = CS_HREDRAW | CS_VREDRAW; // Window class styles
-	wcex.lpszClassName = (LPCTSTR)"HiClass"; // Window class name
-	wcex.hbrBackground = CreateSolidBrush(RGB(255, 0, 0)); // Window background brush color.
-	wcex.hCursor = LoadCursor(hinst, MAKEINTRESOURCE(IDC_MYAPP_POINTER)); // Window cursor
-	wcex.lpfnWndProc = DebugProc; // Window procedure associated to this window class.
-	wcex.hInstance = hinst; // The application instance.
+	WNDCLASSEX windowclassforwindow2;
+	ZeroMemory(&windowclassforwindow2,sizeof(WNDCLASSEX));
+	windowclassforwindow2.cbClsExtra=NULL;
+	windowclassforwindow2.cbSize=sizeof(WNDCLASSEX);
+	windowclassforwindow2.cbWndExtra=NULL;
+	windowclassforwindow2.hbrBackground=(HBRUSH)COLOR_WINDOW;
+	windowclassforwindow2.hCursor=LoadCursor(NULL,IDC_ARROW);
+	windowclassforwindow2.hIcon=NULL;
+	windowclassforwindow2.hIconSm=NULL;
+	windowclassforwindow2.hInstance=hinst;
+	windowclassforwindow2.lpfnWndProc= ui::DebugProc;
+	windowclassforwindow2.lpszClassName=L"window class2";
+	windowclassforwindow2.lpszMenuName=NULL;
+	windowclassforwindow2.style=CS_HREDRAW|CS_VREDRAW;
 
-	if(!RegisterClassEx(&wcex)) 
+	if(!RegisterClassEx(&windowclassforwindow2))
+	{
+		int nResult=GetLastError();
+		MessageBox(nullptr,
+			L"Window class creation failed for window 2",
+			L"Window Class Failed",
+			MB_ICONERROR);
+
 		return nullptr;
+	}
 
-	CREATESTRUCT cs;
-	ZeroMemory(&cs, sizeof(cs));
+	HWND handle=CreateWindowEx(NULL,
+		windowclassforwindow2.lpszClassName,
+			L"Child Window",
+			WS_POPUPWINDOW | WS_CAPTION,
+			200,
+			150,
+			640,
+			480,
+			parent,
+			NULL,
+			hinst,
+			NULL);
 
-		cs.x = 100; // Window X position
-		cs.y = 100; // Window Y position
-		cs.cx = 140; // Window width
-		cs.cy = 280; // Window height
-		cs.hInstance = hinst; // Window instance.
-		cs.lpszClass = wcex.lpszClassName; // Window class name
-		cs.lpszName = TEXT("My second Window"); // Window title
-	cs.hwndParent = parent;
-	cs.hMenu = (HMENU) 10005;
-		cs.style = WS_CHILD | WS_SIZEBOX; // Window style
+	if(!handle)
+	{
+		int nResult=GetLastError();
 
-	return CreateWindowEx(
-		cs.dwExStyle,
-		cs.lpszClass,
-		cs.lpszName,
-		cs.style,
-		cs.x,
-		cs.y,
-		cs.cx,
-		cs.cy,
-		cs.hwndParent,
-		cs.hMenu,
-		cs.hInstance,
-		cs.lpCreateParams);
+		MessageBox(NULL,
+			L"Window creation failed",
+			L"Window Creation Failed",
+			MB_ICONERROR);
+
+		return nullptr;
+	}
+
+	return handle;
 }
 
 void ui::showWindow(HWND wind)
@@ -62,24 +133,39 @@ void ui::hideWindow(HWND wind)
 	ShowWindow(wind, SW_HIDE);
 }
 
-LRESULT ui::DebugProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK ui::mainWindowProc(HWND handleforwindow,UINT msg,WPARAM wParam,LPARAM lParam)
 {
-	int wmId, wmEvent;
-	PAINTSTRUCT ps;
-	HDC hdc;
-
-	switch (uMsg)
+	switch(msg)
 	{
-	case WM_PAINT:
-		hdc = BeginPaint(hWnd, &ps);
-		// TODO: Add any drawing code here...
-		EndPaint(hWnd, &ps);
+		case WM_DESTROY: {
+			MessageBox(NULL,
+			L"Window 1 closed",
+			L"Message",
+			MB_ICONINFORMATION);
+
+			PostQuitMessage(0);
+		}
 		break;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		break;
-	default:
-		return DefWindowProc(hWnd, uMsg, wParam, lParam);
 	}
-	return 0;
+
+	return DefWindowProc(handleforwindow,msg,wParam,lParam);
+}
+
+LRESULT CALLBACK ui::DebugProc(HWND handle, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+	switch (msg)
+	{
+	case WM_DESTROY: {
+			MessageBox(NULL,
+					   L"Window 2 closed",
+					   L"Message",
+					   MB_ICONINFORMATION);
+
+			//window2closed=true;
+			//
+		}
+		break;
+	}
+
+	return DefWindowProc(handle, msg, wParam, lParam);
 }
