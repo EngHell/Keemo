@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Keemo", "Keemo\Keemo.vcxproj", "{DF6D9119-8F6A-41AD-A1C6-1FD50A15EAA2}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KeemoLib", "KeemoLib\KeemoLib.vcxproj", "{D17F613B-D28F-4E24-84F5-D5A02CF93DAC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KeemoTests", "KeemoTests\KeemoTests.vcxproj", "{65A22831-CE38-4BC1-B581-1482EAD90AAE}"
@@ -19,14 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DF6D9119-8F6A-41AD-A1C6-1FD50A15EAA2}.Debug|x64.ActiveCfg = Debug|x64
-		{DF6D9119-8F6A-41AD-A1C6-1FD50A15EAA2}.Debug|x64.Build.0 = Debug|x64
-		{DF6D9119-8F6A-41AD-A1C6-1FD50A15EAA2}.Debug|x86.ActiveCfg = Debug|Win32
-		{DF6D9119-8F6A-41AD-A1C6-1FD50A15EAA2}.Debug|x86.Build.0 = Debug|Win32
-		{DF6D9119-8F6A-41AD-A1C6-1FD50A15EAA2}.Release|x64.ActiveCfg = Release|x64
-		{DF6D9119-8F6A-41AD-A1C6-1FD50A15EAA2}.Release|x64.Build.0 = Release|x64
-		{DF6D9119-8F6A-41AD-A1C6-1FD50A15EAA2}.Release|x86.ActiveCfg = Release|Win32
-		{DF6D9119-8F6A-41AD-A1C6-1FD50A15EAA2}.Release|x86.Build.0 = Release|Win32
 		{D17F613B-D28F-4E24-84F5-D5A02CF93DAC}.Debug|x64.ActiveCfg = Debug|x64
 		{D17F613B-D28F-4E24-84F5-D5A02CF93DAC}.Debug|x64.Build.0 = Debug|x64
 		{D17F613B-D28F-4E24-84F5-D5A02CF93DAC}.Debug|x86.ActiveCfg = Debug|Win32
