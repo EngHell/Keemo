@@ -1,4 +1,7 @@
-﻿extern "C" {
+﻿#include "../KeemoObject.hpp"
+#include "../KeemoWindow.h"
+
+extern "C" {
 	#include "kiss_sdl.h"
 }
 
@@ -13,7 +16,7 @@ int main(int argc, char* argv[])
 	SDL_Renderer *renderer;
 	SDL_Event e;
 	kiss_array objects;
-	kiss_window window;
+	
 	kiss_label label = {0};
 	kiss_button button = {0};
 	char message[KISS_MAX_LENGTH];
@@ -23,26 +26,46 @@ int main(int argc, char* argv[])
 	draw = 1;
 	kiss_array_new(&objects);
 	char title[] = "Hello kiss";
-	renderer = kiss_init(title, &objects, 320, 120);
+	renderer = kiss_init(title, &objects, 500, 400);
 	if(!renderer)
 		return 1;
-	kiss_window_new(
-		&window, NULL, 0, 0, 0, kiss_screen_width, kiss_screen_height
-	);
+
+	KeemoWindow w{nullptr, 0, 0, kiss_screen_width, kiss_screen_height};
+	KeemoWindow w2{&w, w.width()/2, w.height()/2, w.width()/2, w.height()/2};
+
 	strcpy(message, "Hello World1");
+
+	SDL_Point labelCoord{
+		w2.width() / 2 - strlen(message) * kiss_textfont.advance / 2,
+		w2.height() / 2 - (kiss_textfont.fontheight + 2 * kiss_normal.h) / 2
+	};
+
+	SDL_Point labelCoordG = w2.mapToGlobal(labelCoord);
+
 	kiss_label_new(
-		&label, &window, message,
-		window.rect.w / 2 - strlen(message) * kiss_textfont.advance / 2,
-		window.rect.h / 2 - (kiss_textfont.fontheight + 2 * kiss_normal.h) / 2	
+		&label, &w2.window, message,
+		labelCoordG.x,
+		labelCoordG.y
 	);
 	label.textcolor.r = 255;
-	char labelText[] = "OK";
+
+
+	char butonText[] = "OK";
+	SDL_Point buttonCoord{
+		w2.width() /2 - kiss_normal.w / 2,
+		labelCoord.y + kiss_textfont.fontheight + kiss_normal.h
+	};
+	buttonCoord = w2.mapToGlobal(buttonCoord);
 	kiss_button_new(
-		&button, &window, labelText,
-		window.rect.w /2 - kiss_normal.w / 2,
-		label.rect.y + kiss_textfont.fontheight + kiss_normal.h
+		&button, &w2.window, butonText,
+		buttonCoord.x,
+		buttonCoord.y
 	);
-	window.visible = 1;
+
+	w2.setBackgroundColor(kiss_blue);
+	w.show();
+	w2.show();
+
 	while(!quit)
 	{
 		SDL_Delay(10);
@@ -51,14 +74,15 @@ int main(int argc, char* argv[])
 			if(e.type == SDL_QUIT)
 				quit = 1;
 
-			kiss_window_event(&window, &e, &draw);
+			kiss_window_event(&w.window, &e, &draw);
 			button_event(&button, &e, &draw, &quit);
 		}
 		if(!draw)
 			continue;
 
 		SDL_RenderClear(renderer);
-		kiss_window_draw(&window, renderer);
+		kiss_window_draw(&w.window, renderer);
+		kiss_window_draw(&w2.window, renderer);
 		kiss_label_draw(&label, renderer);
 		kiss_button_draw(&button, renderer);
 		SDL_RenderPresent(renderer);

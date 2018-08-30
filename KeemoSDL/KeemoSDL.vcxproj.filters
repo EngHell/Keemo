@@ -13,26 +13,41 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="kiss_sdl">
+      <UniqueIdentifier>{3d3997c5-1f61-4b34-8f40-89d9a1b7e79d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="kiss_sdl\kiss_draw.c">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="kiss_sdl\kiss_general.c">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="kiss_sdl\kiss_posix.c">
+    <ClCompile Include="kiss_sdl\test.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="kiss_sdl\kiss_widgets.c">
+      <Filter>kiss_sdl</Filter>
+    </ClCompile>
+    <ClCompile Include="kiss_sdl\kiss_general.c">
+      <Filter>kiss_sdl</Filter>
+    </ClCompile>
+    <ClCompile Include="kiss_sdl\kiss_posix.c">
+      <Filter>kiss_sdl</Filter>
+    </ClCompile>
+    <ClCompile Include="kiss_sdl\kiss_draw.c">
+      <Filter>kiss_sdl</Filter>
+    </ClCompile>
+    <ClCompile Include="KeemoObject.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="kiss_sdl\test.cpp">
+    <ClCompile Include="KeemoWindow.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kiss_sdl\kiss_sdl.h">
+      <Filter>kiss_sdl</Filter>
+    </ClInclude>
+    <ClInclude Include="KeemoObject.hpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="KeemoWindow.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
