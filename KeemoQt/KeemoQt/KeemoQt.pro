@@ -26,12 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         KeemoMainWindow.cpp \
-    DebuggerWindow.cpp
+    DebuggerWindow.cpp \
+    SDLWidget.cpp
 
 HEADERS += \
         KeemoMainWindow.hpp \
-    DebuggerWindow.hpp
+    DebuggerWindow.hpp \
+    SDLWidget.h
 
 FORMS += \
         keemomainwindow.ui \
     debuggerwindow.ui
+
+win32:LIBS += \
+    "../../x64/Debug/KeemoLib.lib"

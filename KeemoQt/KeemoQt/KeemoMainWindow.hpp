@@ -4,6 +4,7 @@
 
 #include <QMainWindow>
 #include "DebuggerWindow.hpp"
+#include "SDLWidget.h"
 
 namespace Ui {
 class KeemoMainWindow;
@@ -23,10 +24,10 @@ public:
     // methods
     void closeDebugger();
     void createDebugger();
+    void createRendererWidget();
     void destroyDebugger();
+    void destroyRendererWidget();
     void showDebugger();
-    void setName(const QString &name);
-    QString name() const;
 
     // overrides
 
@@ -36,12 +37,14 @@ protected:
 
     //overrides
     void closeEvent(QCloseEvent *event);
+    void moveEvent(QMoveEvent *event);
 
 private slots:
     void on_actionOpen_triggered();
 
 private:
-    DebuggerWindow* debugger =  nullptr;
+    SDLWidget* renderer = Q_NULLPTR;
+    DebuggerWindow* debugger =  Q_NULLPTR;
     Ui::KeemoMainWindow *ui;
 
 };
