@@ -17,44 +17,4 @@
       <UniqueIdentifier>{3d3997c5-1f61-4b34-8f40-89d9a1b7e79d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="kiss_sdl\test.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="kiss_sdl\kiss_widgets.c">
-      <Filter>kiss_sdl</Filter>
-    </ClCompile>
-    <ClCompile Include="kiss_sdl\kiss_general.c">
-      <Filter>kiss_sdl</Filter>
-    </ClCompile>
-    <ClCompile Include="kiss_sdl\kiss_posix.c">
-      <Filter>kiss_sdl</Filter>
-    </ClCompile>
-    <ClCompile Include="kiss_sdl\kiss_draw.c">
-      <Filter>kiss_sdl</Filter>
-    </ClCompile>
-    <ClCompile Include="KeemoObject.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="KeemoWindow.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="KeemoLabel.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="kiss_sdl\kiss_sdl.h">
-      <Filter>kiss_sdl</Filter>
-    </ClInclude>
-    <ClInclude Include="KeemoObject.hpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="KeemoWindow.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="KeemoLabel.hpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

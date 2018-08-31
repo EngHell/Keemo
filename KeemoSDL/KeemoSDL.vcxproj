@@ -123,22 +123,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="KeemoLabel.cpp" />
-    <ClCompile Include="KeemoObject.cpp" />
-    <ClCompile Include="KeemoWindow.cpp" />
-    <ClCompile Include="kiss_sdl\kiss_draw.c" />
-    <ClCompile Include="kiss_sdl\kiss_general.c" />
-    <ClCompile Include="kiss_sdl\kiss_posix.c" />
-    <ClCompile Include="kiss_sdl\kiss_widgets.c" />
-    <ClCompile Include="kiss_sdl\test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="KeemoLabel.hpp" />
-    <ClInclude Include="KeemoObject.hpp" />
-    <ClInclude Include="KeemoWindow.h" />
-    <ClInclude Include="kiss_sdl\kiss_sdl.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
