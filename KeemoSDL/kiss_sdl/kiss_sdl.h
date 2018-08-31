@@ -317,7 +317,7 @@ int kiss_window_new(kiss_window *window, kiss_window *wdw, int decorate,
 	int x, int y, int w, int h);
 int kiss_window_event(kiss_window *window, SDL_Event *event, int *draw);
 int kiss_window_draw(kiss_window *window, SDL_Renderer *renderer);
-int kiss_label_new(kiss_label *label, kiss_window *wdw, char *text,
+int kiss_label_new(kiss_label *label, kiss_window *wdw,const char *text,
 	int x, int y);
 int kiss_label_draw(kiss_label *label, SDL_Renderer *renderer);
 int kiss_button_new(kiss_button *button, kiss_window *wdw, char *text,

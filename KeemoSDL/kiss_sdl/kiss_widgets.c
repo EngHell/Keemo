@@ -63,7 +63,7 @@ int kiss_window_draw(kiss_window *window, SDL_Renderer *renderer)
 	return 1;
 }
 
-int kiss_label_new(kiss_label *label, kiss_window *wdw, char *text,
+int kiss_label_new(kiss_label *label, kiss_window *wdw,const char *text,
 	int x, int y)
 {
 	if (!label || !text) return -1;

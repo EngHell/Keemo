@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="KeemoLabel.cpp" />
     <ClCompile Include="KeemoObject.cpp" />
     <ClCompile Include="KeemoWindow.cpp" />
     <ClCompile Include="kiss_sdl\kiss_draw.c" />
@@ -133,6 +134,7 @@
     <ClCompile Include="kiss_sdl\test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="KeemoLabel.hpp" />
     <ClInclude Include="KeemoObject.hpp" />
     <ClInclude Include="KeemoWindow.h" />
     <ClInclude Include="kiss_sdl\kiss_sdl.h" />
