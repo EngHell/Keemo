@@ -83,7 +83,8 @@ void ui::showDebugger(bool* show)
 	}
 	Columns(1);
 	Separator();
-	
+
+	InputUint8("OPCode",&KeemoLib::cpu::opcode, registerBuff, buffMax, &showInHex);	
 
 	ImGui::End();
 }
