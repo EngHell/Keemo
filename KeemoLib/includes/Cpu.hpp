@@ -81,6 +81,7 @@ namespace KeemoLib
 
 		extern uint8_t opcode;
 		extern Registers registers;
+		extern uint16_t ram_size;
 		//Instruction currentInstruction;
 		//Instruction instructionDictionary[256];
 

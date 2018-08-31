@@ -8,6 +8,7 @@ namespace KeemoLib
 	{
 		uint8_t opcode;
 		Registers registers;
+		uint16_t ram_size;
 	}
 }
 
