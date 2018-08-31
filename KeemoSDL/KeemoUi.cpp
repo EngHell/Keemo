@@ -117,7 +117,7 @@ bool ui::InputUint8(const char* label, uint8_t* uint, char* buff, size_t buffSiz
 		{
 			r = 0 ;
 		}
-		*uint = uint8_t{r};
+		*uint = r;
 		return true;
 	}
 
@@ -151,7 +151,7 @@ bool ui::InputUint16(const char* label, uint16_t* uint, char*buff, size_t buff_s
 		{
 			r = 0;
 		}
-		*uint = uint16_t{r};
+		*uint = r;
 		return true;
 	}
 
