@@ -12,6 +12,7 @@ namespace KeemoLib
 			constexpr const uint16_t ROM_TITLE_START_OFFSET = 0x134;
 			constexpr const uint16_t ROM_TITLE_END_OFFSET = 0x142;
 			constexpr const uint16_t ROM_TYPE_OFFSET = 0x147;
+			constexpr const uint16_t RAM_SIZE_OFFSET = 0x148;
 
 
 			constexpr const uint8_t ROM_ONLY = 0x0;
@@ -99,5 +100,6 @@ namespace KeemoLib
 		 */
 		void readCartrideTitle();
 		bool readCartridgeType();
+		void readRamSize();
 	}
 }

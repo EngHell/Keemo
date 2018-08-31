@@ -2,6 +2,7 @@
 #include "..\includes\Cartridge.hpp"
 #include "..\includes\Memory.hpp"
 #include <fstream>
+#include "../includes/Cpu.hpp"
 
 namespace KeemoLib
 {
@@ -22,6 +23,7 @@ bool KeemoLib::cartridge::loadCartridge(std::string path)
 		if(readCartridgeType())
 		{
 			readCartrideTitle();
+			readRamSize();
 
 			success = true;
 		}
@@ -100,4 +102,9 @@ bool KeemoLib::cartridge::readCartridgeType()
 	}
 
 	return supported;
+}
+
+void KeemoLib::cartridge::readRamSize()
+{
+	KeemoLib::cpu::ram_size = KeemoLib::memory::rom[Consts::RAM_SIZE_OFFSET];
 }
