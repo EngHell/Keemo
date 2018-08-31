@@ -45,6 +45,9 @@
     <ClInclude Include="includes\Cartridge.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="includes\Core.hpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -63,6 +66,9 @@
       <Filter>Archivos de origen\Op</Filter>
     </ClCompile>
     <ClCompile Include="src\Cartridge.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

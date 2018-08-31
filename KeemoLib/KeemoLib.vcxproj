@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="includes\Core.hpp" />
     <ClInclude Include="includes\Cartridge.hpp" />
     <ClInclude Include="includes\Cpu.hpp" />
     <ClInclude Include="includes\KeemoDefines.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core.cpp" />
     <ClCompile Include="src\Cartridge.cpp" />
     <ClCompile Include="src\Cpu.cpp" />
     <ClCompile Include="src\Memory.cpp" />
