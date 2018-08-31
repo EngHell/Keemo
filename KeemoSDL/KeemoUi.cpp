@@ -79,7 +79,7 @@ void ui::showDebugger(bool* show)
 	result2 = KeemoLib::memory::readUInt16(evaluate2);
 	if(ui::InputUint16("Result2",&result2, registerBuff, buffMax, &showInHex))
 	{
-		KeemoLib::memory::writeUInt8(evaluate2, result2);
+		KeemoLib::memory::writeUInt16(evaluate2, result2);
 	}
 	Columns(1);
 	Separator();
