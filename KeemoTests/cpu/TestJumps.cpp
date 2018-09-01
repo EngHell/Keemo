@@ -354,6 +354,131 @@ namespace KeemoTests
 					Assert::IsTrue(actual == (address+n));
 				}
 
+				// jump if the Z flag is reset
+				TEST_METHOD(test_jr_nz_n_z_set)
+				{
+					// Usual initialization
+					const uint64_t address_limit = 0xff;
+					const uint8_t opcode = 0x20;
+					const uint8_t n = rand() % address_limit;
+
+					// modifying this so it's more natural.
+					const uint16_t oplength = 2;
+
+					const uint16_t address = rand() % (0xffff - oplength - address_limit);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt8(address + 1, n);
+					cpu::registers.f = cpu::Flags::Z;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = cpu::registers.pc;
+					Assert::IsTrue(actual == address + (oplength));
+				}
+
+				// jump if the Z flag is reset
+				TEST_METHOD(test_jr_nz_n_z_reset)
+				{
+					// Usual initialization
+					const uint64_t address_limit = 0xff;
+					const uint8_t opcode = 0x20;
+					const uint8_t n = rand() % address_limit;
+
+					// modifying this so it's more natural.
+					const uint16_t oplength = 2;
+
+					const uint16_t address = rand() % (0xffff - oplength - address_limit);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt8(address + 1, n);
+					cpu::registers.f = 0;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = cpu::registers.pc;
+					Assert::IsTrue(actual == (address+n));
+				}
+
+
+				// jumps is z is set
+				TEST_METHOD(test_jr_z_n_set)
+				{
+					// Usual initialization
+					const uint64_t address_limit = 0xff;
+					const uint8_t opcode = 0x28;
+					const uint8_t n = rand() % address_limit;
+
+					// modifying this so it's more natural.
+					const uint16_t oplength = 2;
+
+					const uint16_t address = rand() % (0xffff - oplength - address_limit);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt8(address + 1, n);
+					cpu::registers.f = cpu::Flags::Z;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = cpu::registers.pc;
+					Assert::IsTrue(actual == (address+n));
+				}
+
+				// jumps is z is set
+				TEST_METHOD(test_jr_z_n_reset)
+				{
+					// Usual initialization
+					const uint64_t address_limit = 0xff;
+					const uint8_t opcode = 0x28;
+					const uint8_t n = rand() % address_limit;
+
+					// modifying this so it's more natural.
+					const uint16_t oplength = 2;
+
+					const uint16_t address = rand() % (0xffff - oplength - address_limit);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt8(address + 1, n);
+					cpu::registers.f = 0;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = cpu::registers.pc;
+					Assert::IsTrue(actual == (address+oplength));
+				}
+
 			};
 
 		}

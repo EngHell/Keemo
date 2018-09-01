@@ -71,3 +71,27 @@ void cpu::op::jr_n()
 {
 	JUMP_TO(registers.pc + memory::readUInt8(registers.pc +1));
 }
+
+void cpu::op::jr_nz_n()
+{
+	if(!CHECK_FLAG(Flags::Z))
+	{
+		// we cant use ++registers.pc as that plus 1 to the register and we the wrong pc
+		JUMP_TO(registers.pc + memory::readUInt8(registers.pc+1));
+	} else
+	{
+		registers.pc += 1;
+	}
+}
+
+void cpu::op::jr_z_n()
+{
+	if(CHECK_FLAG(Flags::Z))
+	{
+		// we cant use ++registers.pc as that plus 1 to the register and we the wrong pc
+		JUMP_TO(registers.pc + memory::readUInt8(registers.pc+1));
+	} else
+	{
+		registers.pc += 1;
+	}
+}
