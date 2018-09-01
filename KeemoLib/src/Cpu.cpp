@@ -409,7 +409,13 @@ void cpu::step()
 	// only when they relly on continuous bits to the pc
 	// this means, i just need to increace one more time here, and
 	// avoid a shitton of ++registers.pc at the end of each opcode function
-	++registers.pc;
+	if(raise_pc)
+	{
+		++registers.pc;
+	} else
+	{
+		raise_pc = false;
+	}
 }
 
 

@@ -79,9 +79,14 @@ namespace KeemoLib
 			wchar_t *disassembly;
 		};
 
+
 		extern uint8_t opcode;
 		extern Registers registers;
 		extern uint16_t ram_size;
+
+		bool raise_pc = true;
+		
+
 		//Instruction currentInstruction;
 		//Instruction instructionDictionary[256];
 
