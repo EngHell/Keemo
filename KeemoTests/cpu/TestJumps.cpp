@@ -177,7 +177,7 @@ namespace KeemoTests
 
 
 				// jump if the C flag is reset
-				TEST_METHOD(test_jp_nc_nn_z_set)
+				TEST_METHOD(test_jp_nc_nn_c_set)
 				{
 					// Usual initialization
 					const uint8_t opcode = 0xd2;
@@ -206,8 +206,8 @@ namespace KeemoTests
 					Assert::IsTrue(actual == address + (oplength));
 				}
 
-				// jump if the Z flag is reset
-				TEST_METHOD(test_jp_nc_nn_z_reset)
+				// jump if the c flag is reset
+				TEST_METHOD(test_jp_nc_nn_c_reset)
 				{
 					// Usual initialization
 					const uint8_t opcode = 0xd2;
