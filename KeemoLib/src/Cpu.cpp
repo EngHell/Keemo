@@ -37,6 +37,9 @@ void cpu::step()
 	case 0xd2:
 		op::jp_nc_nn();
 		break;
+	case 0xda:
+		op::jp_c_nn();
+		break;
 
 		/**
 		 * 8 bit loads.
