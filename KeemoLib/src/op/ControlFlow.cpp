@@ -95,3 +95,15 @@ void cpu::op::jr_z_n()
 		registers.pc += 1;
 	}
 }
+
+void cpu::op::jr_nc_n()
+{
+	if(!CHECK_FLAG(Flags::C))
+	{
+		JUMP_TO(registers.pc + memory::readUInt8(registers.pc+1));
+	}
+	else
+	{
+		registers.pc +=1;
+	}
+}
