@@ -61,3 +61,8 @@ void KeemoLib::cpu::op::jp_c_nn()
 	}
 	
 }
+
+void KeemoLib::cpu::op::jp_hl()
+{
+	JUMP_TO( memory::readUInt16(registers.hl) );
+}

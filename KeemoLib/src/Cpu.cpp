@@ -40,6 +40,9 @@ void cpu::step()
 	case 0xda:
 		op::jp_c_nn();
 		break;
+	case 0xe9:
+		op::jp_hl();
+		break;
 
 		/**
 		 * 8 bit loads.
