@@ -28,6 +28,9 @@ void cpu::step()
 	case 0xc3:
 		op::jp_nn();
 		break;
+	case 0xc2:
+		op::jp_nz_nn();
+		break;
 
 		/**
 		 * 8 bit loads.

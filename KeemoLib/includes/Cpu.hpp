@@ -112,5 +112,10 @@ namespace KeemoLib
 		{
 			registers.f |= (flags);
 		}
+
+		inline bool CHECK_FLAG(Flags flag)
+		{
+			return ((registers.f) & flag);
+		}
 	}
 }
