@@ -42,6 +42,7 @@ void ui::showDebugger(bool* show, bool* play, bool* step_by_step_mode)
 	static uint16_t result2 = 0;
 	static const size_t err_buff_size = 100;
 	static char err_buff[err_buff_size];
+	static uint8_t opcode;
 
 
 	// register display
@@ -102,7 +103,11 @@ void ui::showDebugger(bool* show, bool* play, bool* step_by_step_mode)
 	Columns(1);
 	Separator();
 
-	InputUint8("OPCode", &KeemoLib::cpu::opcode, registerBuff, buffMax, &showInHex);
+	// so to get the current opcode instead of waiting for cpu::step() when the pc raises and the opcode of the last 
+	// operation is left
+	opcode = KeemoLib::memory::readUInt8(KeemoLib::cpu::registers.pc);
+	// will add a hot opcode edition if needed but otherwise nope
+	InputUint8("OPCode", &opcode, registerBuff, buffMax, &showInHex);
 
 	if (Button("Open file"))
 	{
