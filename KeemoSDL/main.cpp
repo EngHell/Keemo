@@ -14,6 +14,10 @@
 #include <SDL_opengl.h>
 #include "KeemoUi.hpp"
 
+#include <windows.h>
+#include <oleauto.h>
+#include "Cpu.hpp"
+
 int main(int, char**)
 {
 	// Setup SDL
@@ -65,12 +69,21 @@ int main(int, char**)
 
 	bool show_demo_window = true;
 	bool showDebugger = true;
+	bool should_cpu_step = false;
+	bool step_by_step = true;
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
 	// Main loop
 	bool done = false;
 	while (!done)
 	{
+		if(should_cpu_step)
+		{
+			KeemoLib::cpu::step();
+			if(step_by_step)
+				should_cpu_step = false;
+		}
+
 		// Poll and handle events (inputs, window resize, etc.)
 		// You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
 		// - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application.
@@ -94,7 +107,7 @@ int main(int, char**)
 			ImGui::ShowDemoWindow(&show_demo_window);
 
 		if(showDebugger)
-			ui::showDebugger(&showDebugger);
+			ui::showDebugger(&showDebugger, &should_cpu_step, &step_by_step);
 
 		// 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
 		{
