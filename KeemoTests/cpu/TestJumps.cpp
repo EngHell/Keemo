@@ -304,7 +304,7 @@ namespace KeemoTests
 					const uint16_t toDeffer = rand() % 0xffff;
 
 					// modifying this so it's more natural.
-					const uint16_t oplength = 3;
+					const uint16_t oplength = 1;
 
 					const uint16_t address = rand() % (0xffff - oplength);
 
