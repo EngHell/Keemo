@@ -418,5 +418,5 @@ void cpu::step()
  */
 void cpu::op::NOP()
 {
-	++registers.pc;
+	//lol there shall be nothing.
 }
