@@ -53,5 +53,8 @@
     <ClCompile Include="CartridgeLoadTests.cpp">
       <Filter>Tests\Cartridge</Filter>
     </ClCompile>
+    <ClCompile Include="cpu\TestJumps.cpp">
+      <Filter>Tests\Cpu\OpCodes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

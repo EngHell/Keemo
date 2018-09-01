@@ -84,7 +84,7 @@ namespace KeemoLib
 		extern Registers registers;
 		extern uint16_t ram_size;
 
-		bool raise_pc = true;
+		extern bool raise_pc;
 		
 
 		//Instruction currentInstruction;

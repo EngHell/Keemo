@@ -1,6 +1,6 @@
 #include "../includes/Cpu.hpp"
 #include "../includes/Memory.hpp"
-#include "op/Op.hpp";
+#include "op/Op.hpp"
 
 namespace KeemoLib
 {
@@ -9,6 +9,7 @@ namespace KeemoLib
 		uint8_t opcode;
 		Registers registers;
 		uint16_t ram_size;
+		bool raise_pc = true;
 	}
 }
 
@@ -21,6 +22,12 @@ void cpu::step()
 
 	switch (opcode)
 	{
+		/***********************************************************************
+		 * JMP calls
+		 ***********************************************************************/
+	case 0xc3:
+		op::jp_nn();
+		break;
 
 		/**
 		 * 8 bit loads.

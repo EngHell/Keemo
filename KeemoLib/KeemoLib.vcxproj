@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\op\ControlFlow.hpp" />
     <ClInclude Include="includes\Core.hpp" />
     <ClInclude Include="includes\Cartridge.hpp" />
     <ClInclude Include="includes\Cpu.hpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\op\ControlFlow.cpp" />
     <ClCompile Include="src\Core.cpp" />
     <ClCompile Include="src\Cartridge.cpp" />
     <ClCompile Include="src\Cpu.cpp" />

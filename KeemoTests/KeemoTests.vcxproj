@@ -162,6 +162,7 @@
     <ClCompile Include="CartridgeLoadTests.cpp" />
     <ClCompile Include="cpu\Test16BitLoads.cpp" />
     <ClCompile Include="cpu\Test8BitLoads.cpp" />
+    <ClCompile Include="cpu\TestJumps.cpp" />
     <ClCompile Include="MemoryTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
