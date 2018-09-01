@@ -9,6 +9,7 @@ namespace KeemoLib
 			void jp_nn();
 			void jp_nz_nn();
 			void jp_z_nn();
+			void jp_nc_nn();
 		}
 	}
 }

@@ -34,3 +34,16 @@ void KeemoLib::cpu::op::jp_z_nn()
 		registers.pc += 2;
 	}
 }
+
+void KeemoLib::cpu::op::jp_nc_nn()
+{
+	if(!CHECK_FLAG(Flags::C))
+	{
+		raise_pc = false;
+		registers.pc = memory::readUInt16(++registers.pc);
+	}
+	else
+	{
+		registers.pc += 2;
+	}
+}
