@@ -43,6 +43,9 @@ void cpu::step()
 	case 0xe9:
 		op::jp_hl();
 		break;
+	case 0x18:
+		op::jr_n();
+		break;
 
 		/**
 		 * 8 bit loads.

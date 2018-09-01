@@ -7,6 +7,7 @@ namespace KeemoLib
 		namespace op
 		{
 			void jp_nn();
+			void jr_n();
 			void jp_nz_nn();
 			void jp_z_nn();
 			void jp_nc_nn();
