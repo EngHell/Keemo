@@ -55,6 +55,9 @@ void cpu::step()
 	case 0x30:
 		op::jr_nc_n();
 		break;
+	case 0x38:
+		op::jr_c_n();
+		break;
 
 		/**
 		 * 8 bit loads.
