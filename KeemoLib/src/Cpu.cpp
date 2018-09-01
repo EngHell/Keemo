@@ -445,7 +445,7 @@ void cpu::step()
 		++registers.pc;
 	} else
 	{
-		raise_pc = false;
+		raise_pc = true;
 	}
 }
 
