@@ -15,6 +15,12 @@ namespace KeemoTests
 			TEST_CLASS(TestJumps)
 			{
 			public:
+				TEST_METHOD_INITIALIZE(methodName)   
+				{  
+					// to avoid bugs from last tests and not set it at the start of each test
+				    KeemoLib::cpu::raise_pc = true;
+				}
+
 				TEST_CLASS_INITIALIZE(Test_init)
 				{
 					srand(time(nullptr));
@@ -29,7 +35,7 @@ namespace KeemoTests
 					// modifying this so it's more natural.
 					const uint16_t oplength = 3;
 
-					const uint16_t address = rand() % (0xffff-oplength);
+					const uint16_t address = rand() % (0xffff - oplength);
 
 					using namespace KeemoLib;
 
@@ -38,7 +44,7 @@ namespace KeemoTests
 					// Opcode write to memory
 					memory::writeUInt8(address, opcode);
 					// Opcode arguments write to memory
-					memory::writeUInt16(address+1, expected);
+					memory::writeUInt16(address + 1, expected);
 
 					// emulation step
 					cpu::step();
@@ -58,7 +64,7 @@ namespace KeemoTests
 					// modifying this so it's more natural.
 					const uint16_t oplength = 3;
 
-					const uint16_t address = rand() % (0xffff-oplength);
+					const uint16_t address = rand() % (0xffff - oplength);
 
 					using namespace KeemoLib;
 
@@ -67,7 +73,7 @@ namespace KeemoTests
 					// Opcode write to memory
 					memory::writeUInt8(address, opcode);
 					// Opcode arguments write to memory
-					memory::writeUInt16(address+1, expected);
+					memory::writeUInt16(address + 1, expected);
 					cpu::registers.f = cpu::Flags::Z;
 
 					// emulation step
@@ -75,7 +81,7 @@ namespace KeemoTests
 
 					// we check the actual value at memory
 					const uint16_t actual = cpu::registers.pc;
-					Assert::IsTrue(actual == address+(oplength));
+					Assert::IsTrue(actual == address + (oplength));
 				}
 
 				// jump if the Z flag is reset
@@ -88,7 +94,7 @@ namespace KeemoTests
 					// modifying this so it's more natural.
 					const uint16_t oplength = 3;
 
-					const uint16_t address = rand() % (0xffff-oplength);
+					const uint16_t address = rand() % (0xffff - oplength);
 
 					using namespace KeemoLib;
 
@@ -97,7 +103,7 @@ namespace KeemoTests
 					// Opcode write to memory
 					memory::writeUInt8(address, opcode);
 					// Opcode arguments write to memory
-					memory::writeUInt16(address+1, expected);
+					memory::writeUInt16(address + 1, expected);
 					cpu::registers.f = 0;
 
 					// emulation step
@@ -108,8 +114,68 @@ namespace KeemoTests
 					Assert::IsTrue(actual == expected);
 				}
 
-			};
 
+				// jumps is z is set
+				TEST_METHOD(test_jp_z_nn_set)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xca;
+					const uint16_t expected = rand() % 0xffff;
+
+					// modifying this so it's more natural.
+					const uint16_t oplength = 3;
+
+					const uint16_t address = rand() % (0xffff - oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt16(address + 1, expected);
+					cpu::registers.f = cpu::Flags::Z;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = cpu::registers.pc;
+					Assert::IsTrue(actual == expected);
+				}
+
+				// jumps is z is set
+				TEST_METHOD(test_jp_z_nn_reset)
+				{
+					// Usual initialization
+					const uint8_t opcode = 0xca;
+					const uint16_t expected = rand() % 0xffff;
+
+					// modifying this so it's more natural.
+					const uint16_t oplength = 3;
+
+					const uint16_t address = rand() % (0xffff - oplength);
+
+					using namespace KeemoLib;
+
+					// pc pointer setup
+					cpu::registers.pc = address;
+					// Opcode write to memory
+					memory::writeUInt8(address, opcode);
+					// Opcode arguments write to memory
+					memory::writeUInt16(address + 1, expected);
+					cpu::registers.f = 0;
+
+					// emulation step
+					cpu::step();
+
+					// we check the actual value at memory
+					const uint16_t actual = cpu::registers.pc;
+					Assert::IsTrue(actual == (address+oplength));
+				}
+
+			};
 
 		}
 	}
