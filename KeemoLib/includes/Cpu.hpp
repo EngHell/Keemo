@@ -117,5 +117,11 @@ namespace KeemoLib
 		{
 			return ((registers.f) & flag);
 		}
+
+		inline void JUMP_TO(uint16_t address)
+		{
+			raise_pc = false;
+			registers.pc = address;
+		}
 	}
 }
