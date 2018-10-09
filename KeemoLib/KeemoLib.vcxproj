@@ -148,6 +148,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="includes\Video.hpp" />
+    <ClInclude Include="src\video\Sprite.hpp" />
     <ClInclude Include="src\op\ControlFlow.hpp" />
     <ClInclude Include="includes\Core.hpp" />
     <ClInclude Include="includes\Cartridge.hpp" />
@@ -161,6 +163,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\video\Sprite.cpp" />
     <ClCompile Include="src\op\ControlFlow.cpp" />
     <ClCompile Include="src\Core.cpp" />
     <ClCompile Include="src\Cartridge.cpp" />
@@ -168,6 +171,7 @@
     <ClCompile Include="src\Memory.cpp" />
     <ClCompile Include="src\op\Bit16Loads.cpp" />
     <ClCompile Include="src\op\Bit8Loads.cpp" />
+    <ClCompile Include="src\Video.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
