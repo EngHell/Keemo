@@ -28,6 +28,9 @@
     <Filter Include="Tests\Cartridge">
       <UniqueIdentifier>{c907890a-9afc-429f-b4c1-a5200bf352e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tests\Video">
+      <UniqueIdentifier>{e1bf285c-e5ce-4593-a319-e30010ea4b5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -41,20 +44,23 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="MemoryTests.cpp">
+    <ClCompile Include="tests\memory\MemoryTests.cpp">
       <Filter>Tests\Memory</Filter>
     </ClCompile>
-    <ClCompile Include="cpu\Test8BitLoads.cpp">
-      <Filter>Tests\Cpu\OpCodes</Filter>
-    </ClCompile>
-    <ClCompile Include="cpu\Test16BitLoads.cpp">
-      <Filter>Tests\Cpu\OpCodes</Filter>
-    </ClCompile>
-    <ClCompile Include="CartridgeLoadTests.cpp">
+    <ClCompile Include="tests\cartridge\CartridgeLoadTests.cpp">
       <Filter>Tests\Cartridge</Filter>
     </ClCompile>
-    <ClCompile Include="cpu\TestJumps.cpp">
+    <ClCompile Include="tests\cpu\Test8BitLoads.cpp">
       <Filter>Tests\Cpu\OpCodes</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\cpu\Test16BitLoads.cpp">
+      <Filter>Tests\Cpu\OpCodes</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\cpu\TestJumps.cpp">
+      <Filter>Tests\Cpu\OpCodes</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\video\VideoTests.cpp">
+      <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

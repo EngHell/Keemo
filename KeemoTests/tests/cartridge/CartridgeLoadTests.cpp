@@ -1,7 +1,6 @@
 ﻿#include "stdafx.h"
 #include <CppUnitTest.h>
-#include "../KeemoLib/includes/Cartridge.hpp"
-#include "../KeemoLib/includes/Memory.hpp"
+#include "Cartridge.hpp"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;

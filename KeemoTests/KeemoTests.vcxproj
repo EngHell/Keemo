@@ -159,17 +159,18 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CartridgeLoadTests.cpp" />
-    <ClCompile Include="cpu\Test16BitLoads.cpp" />
-    <ClCompile Include="cpu\Test8BitLoads.cpp" />
-    <ClCompile Include="cpu\TestJumps.cpp" />
-    <ClCompile Include="MemoryTests.cpp" />
+    <ClCompile Include="tests\cartridge\CartridgeLoadTests.cpp" />
+    <ClCompile Include="tests\cpu\Test16BitLoads.cpp" />
+    <ClCompile Include="tests\cpu\Test8BitLoads.cpp" />
+    <ClCompile Include="tests\cpu\TestJumps.cpp" />
+    <ClCompile Include="tests\memory\MemoryTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="tests\video\VideoTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KeemoLib\KeemoLib.vcxproj">
