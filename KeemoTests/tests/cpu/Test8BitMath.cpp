@@ -3,6 +3,7 @@
 #include "Cpu.hpp"
 #include "Memory.hpp"
 #include <ctime>
+#include "../../../KeemoLib/src/op/MathHelpers.hpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -842,6 +843,86 @@ namespace KeemoTests
 
 				// we check pc steps
 				Assert::IsTrue(cpu::registers.pc == (address + oplength));
+			}
+
+			// NOW im going to test our math helper function from top to bot instead of doing it at the
+			// the first instruction i write using it.
+			TEST_METHOD(Test_sub_uint8_with_borrow)
+			{
+				uint8_t a = 10;
+				const uint8_t b = 20;
+
+				const uint8_t expected = a - b;
+
+				using namespace KeemoLib;
+
+				cpu::math::sub_uint8(a, b);
+
+				Assert::AreEqual(expected, a);
+
+				Assert::IsTrue(CHECK_FLAG(cpu::C));
+				Assert::IsFalse(CHECK_FLAG(cpu::H));
+				Assert::IsFalse(CHECK_FLAG(cpu::Z));
+				Assert::IsTrue(CHECK_FLAG(cpu::N));
+			}
+
+			TEST_METHOD(Test_sub_uint8_with_half_borrow)
+			{
+				uint8_t a = 1<<4;
+				const uint8_t b = 1;
+
+				const uint8_t expected = a - b;
+
+				using namespace KeemoLib;
+
+				cpu::math::sub_uint8(a, b);
+
+				Assert::AreEqual(expected, a);
+
+				Assert::IsFalse(CHECK_FLAG(cpu::C));
+				Assert::IsTrue(CHECK_FLAG(cpu::H));
+				Assert::IsFalse(CHECK_FLAG(cpu::Z));
+				Assert::IsTrue(CHECK_FLAG(cpu::N));
+			}
+
+			TEST_METHOD(Test_sub_uint8_result_0)
+			{
+				uint8_t a = rand() % 0xff;
+				const uint8_t b = a;
+
+				const uint8_t expected = a - b;
+
+				using namespace KeemoLib;
+
+				cpu::math::sub_uint8(a, b);
+
+				Assert::AreEqual(expected, a);
+
+				Assert::IsFalse(CHECK_FLAG(cpu::C));
+				Assert::IsFalse(CHECK_FLAG(cpu::H));
+				Assert::IsTrue(CHECK_FLAG(cpu::Z));
+				Assert::IsTrue(CHECK_FLAG(cpu::N));
+
+
+			}
+
+			TEST_METHOD(Test_sub_uint8_test_correct_result_random)
+			{
+				uint8_t a, b, expected;
+
+				for(auto i = 0; i < 100; i ++)
+				{
+					a = rand() % 0xff;
+					b =  rand() % 0xff;
+
+					expected = a - b;
+
+					using namespace KeemoLib;
+
+					cpu::math::sub_uint8(a, b);
+
+					Assert::AreEqual(expected, a);
+				}
 			}
 
 		};

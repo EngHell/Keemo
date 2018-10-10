@@ -42,6 +42,29 @@ namespace KeemoLib
 			{
 				add_uint8(destination, value + (CHECK_FLAG(C)? 1: 0));
 			}
+
+			inline void sub_uint8(uint8_t& dest, uint8_t value)
+			{
+				if(value > dest)
+					SET_FLAGS(C);
+				else
+					CLEAR_FLAGS(C);
+
+				if( (value & 0xf) > (dest & 0xf ))
+					SET_FLAGS(H);
+				else
+					CLEAR_FLAGS(H);
+
+				SET_FLAGS(N);
+
+				dest -= value;
+
+				if(dest)
+					CLEAR_FLAGS(Z);
+				else
+					SET_FLAGS(Z);
+
+			}
 		}
 	}
 }
