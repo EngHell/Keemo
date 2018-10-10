@@ -24,7 +24,7 @@ namespace KeemoTests
 			TEST_METHOD(Test_add_a_a_with_bit_7_carry)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x8f;
+				const uint8_t opcode = 0x87;
 				const uint8_t a = 128;
 
 				const uint8_t expected = a + a;
@@ -68,7 +68,7 @@ namespace KeemoTests
 			TEST_METHOD(Test_add_a_a_with_bit_3_carry)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x8f;
+				const uint8_t opcode = 0x87;
 				const uint8_t a = 15;
 
 				const uint8_t expected = a + a;
@@ -109,7 +109,7 @@ namespace KeemoTests
 			TEST_METHOD(Test_add_a_a_with_bit_7_and_3_carry)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x8f;
+				const uint8_t opcode = 0x87;
 				const uint8_t a = 136;
 
 				const uint8_t expected = a + a;
@@ -138,8 +138,7 @@ namespace KeemoTests
 				Assert::IsFalse(cpu::CHECK_FLAG(cpu::Flags::Z));
 
 				// there was a carry from bit 3 as well bith 7
-				Assert::IsTrue(
-cpu::CHECK_FLAG(cpu::Flags::H));
+				Assert::IsTrue(cpu::CHECK_FLAG(cpu::Flags::H));
 
 				// finally we check our expeted
 				const uint8_t actual = cpu::registers.a;
@@ -151,7 +150,7 @@ cpu::CHECK_FLAG(cpu::Flags::H));
 			TEST_METHOD(Test_add_a_a_with_0_result)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x8f;
+				const uint8_t opcode = 0x87;
 				const uint8_t a = 0;
 
 				const uint8_t expected = a + a;
@@ -193,7 +192,7 @@ cpu::CHECK_FLAG(cpu::Flags::H));
 			TEST_METHOD(Test_add_a_b)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x88;
+				const uint8_t opcode = 0x80;
 				const uint8_t x = rand() % 0xff;
 				const uint8_t y = rand() % x;
 
@@ -227,7 +226,7 @@ cpu::CHECK_FLAG(cpu::Flags::H));
 			TEST_METHOD(Test_add_a_c)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x89;
+				const uint8_t opcode = 0x81;
 				const uint8_t x = rand() % 0xff;
 				const uint8_t y = rand() % x;
 
@@ -262,7 +261,7 @@ cpu::CHECK_FLAG(cpu::Flags::H));
 			TEST_METHOD(Test_add_a_d)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x8a;
+				const uint8_t opcode = 0x82;
 				const uint8_t x = rand() % 0xff;
 				const uint8_t y = rand() % x;
 
@@ -297,7 +296,7 @@ cpu::CHECK_FLAG(cpu::Flags::H));
 			TEST_METHOD(Test_add_a_e)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x8b;
+				const uint8_t opcode = 0x83;
 				const uint8_t x = rand() % 0xff;
 				const uint8_t y = rand() % x;
 
@@ -332,7 +331,7 @@ cpu::CHECK_FLAG(cpu::Flags::H));
 			TEST_METHOD(Test_add_a_h)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x8c;
+				const uint8_t opcode = 0x84;
 				const uint8_t x = rand() % 0xff;
 				const uint8_t y = rand() % x;
 
@@ -367,7 +366,7 @@ cpu::CHECK_FLAG(cpu::Flags::H));
 			TEST_METHOD(Test_add_a_l)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x8d;
+				const uint8_t opcode = 0x85;
 				const uint8_t x = rand() % 0xff;
 				const uint8_t y = rand() % x;
 
@@ -402,7 +401,7 @@ cpu::CHECK_FLAG(cpu::Flags::H));
 			TEST_METHOD(Test_add_a_hl)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0x8e;
+				const uint8_t opcode = 0x86;
 				const uint8_t x = rand() % 0xff;
 				const uint8_t y = rand() % x;
 
@@ -444,7 +443,7 @@ cpu::CHECK_FLAG(cpu::Flags::H));
 			TEST_METHOD(Test_add_a_n)
 			{
 				// Usual initialization
-				const uint8_t opcode = 0xce;
+				const uint8_t opcode = 0xc6;
 				const uint8_t x = rand() % 0xff;
 				const uint8_t y = rand() % x;
 

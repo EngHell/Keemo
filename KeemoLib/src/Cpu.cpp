@@ -440,31 +440,32 @@ void cpu::step()
 	/***********************************************************************
 	* 8bit math
 	 ***********************************************************************/
-	case 0x8f:
+		// ADD A, n
+	case 0x87:
 		op::add_a_a();
 		break;
-	case 0x88:
+	case 0x80:
 		op::add_a_b();
 		break;
-	case 0x89:
+	case 0x81:
 		op::add_a_c();
 		break;
-	case 0x8a:
+	case 0x82:
 		op::add_a_d();
 		break;
-	case 0x8b:
+	case 0x83:
 		op::add_a_e();
 		break;
-	case 0x8c:
+	case 0x84:
 		op::add_a_h();
 		break;
-	case 0x8d:
+	case 0x85:
 		op::add_a_l();
 		break;
-	case 0x8e:
+	case 0x86:
 		op::add_a_hl();
 		break;
-	case 0xce:
+	case 0xc6:
 		op::add_a_n();
 		break;
 
