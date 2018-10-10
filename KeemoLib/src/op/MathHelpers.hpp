@@ -37,6 +37,11 @@ namespace KeemoLib
 
 				destination = result;
 			}
+
+			inline void add_carry_uint8(uint8_t& destination, uint8_t value)
+			{
+				add_uint8(destination, value + (CHECK_FLAG(C)? 1: 0));
+			}
 		}
 	}
 }
