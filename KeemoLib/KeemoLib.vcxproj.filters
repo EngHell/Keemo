@@ -58,10 +58,10 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\op\Bit8Math.hpp">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de origen\Op</Filter>
     </ClInclude>
     <ClInclude Include="src\op\MathHelpers.hpp">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de origen\Op</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +96,7 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="src\op\Bit8Math.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Op</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
