@@ -4,6 +4,8 @@ namespace KeemoLib
 {
 	namespace video
 	{
+		//those here make this private functions, mmm maybe some day i will change this all to be a class, but i dont have those in plans
+		// cuz right now using namespaces fits my structure really well.
 		uint8_t decode_pixel_with_shift(uint8_t first_byte, uint8_t second_byte, uint8_t shift);
 		void create_row_color_data(uint8_t row_first_byte, uint8_t row_second_byte, uint8_t* result);
 

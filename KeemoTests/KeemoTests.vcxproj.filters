@@ -62,5 +62,8 @@
     <ClCompile Include="tests\video\VideoTests.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="tests\cpu\Test8BitMath.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

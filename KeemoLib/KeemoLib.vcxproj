@@ -149,6 +149,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="includes\Video.hpp" />
+    <ClInclude Include="src\op\Bit8Math.hpp" />
+    <ClInclude Include="src\op\MathHelpers.hpp" />
     <ClInclude Include="src\video\Sprite.hpp" />
     <ClInclude Include="src\op\ControlFlow.hpp" />
     <ClInclude Include="includes\Core.hpp" />
@@ -163,6 +165,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\op\Bit8Math.cpp" />
     <ClCompile Include="src\video\Sprite.cpp" />
     <ClCompile Include="src\op\ControlFlow.cpp" />
     <ClCompile Include="src\Core.cpp" />

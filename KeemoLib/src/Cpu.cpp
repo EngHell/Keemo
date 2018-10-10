@@ -437,6 +437,37 @@ void cpu::step()
 		op::pop_hl();
 		break;
 
+	/***********************************************************************
+	* 8bit math
+	 ***********************************************************************/
+	case 0x8f:
+		op::add_a_a();
+		break;
+	case 0x88:
+		op::add_a_b();
+		break;
+	case 0x89:
+		op::add_a_c();
+		break;
+	case 0x8a:
+		op::add_a_d();
+		break;
+	case 0x8b:
+		op::add_a_e();
+		break;
+	case 0x8c:
+		op::add_a_h();
+		break;
+	case 0x8d:
+		op::add_a_l();
+		break;
+	case 0x8e:
+		op::add_a_hl();
+		break;
+	case 0xce:
+		op::add_a_n();
+		break;
+
 	default:
 		op::NOP();
 		break;
