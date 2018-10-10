@@ -17,14 +17,21 @@ void ui::showDebugger(bool* show, bool* play, bool* step_by_step_mode)
 	ImGui::Begin(debuggerId, show, ImGuiWindowFlags_None);
 
 	// debug controls
-	ImGui::Button("Play");
+	if(ImGui::Button("Play"))
+	{
+		*play = true;
+	}
 	ImGui::SameLine();
 	if(Button("Pause"))
 	{
 		*play = false;
 	}
 	ImGui::SameLine();
-	ImGui::Button("Restart");
+	if(ImGui::Button("Restart"))
+	{
+		*play = false;
+		// this button yet does not do anything, cuz im a bit lazy to make it do something yet xd
+	}
 	SameLine();
 	if(Button("Next Step"))
 	{
