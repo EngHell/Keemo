@@ -583,6 +583,34 @@ void cpu::step()
 		op::and_n();
 		break;
 
+		// OR n
+	case 0xb7:
+		op::or_a();
+		break;
+	case 0xb0:
+		op::or_b();
+		break;
+	case 0xb1:
+		op::or_c();
+		break;
+	case 0xb2:
+		op::or_d();
+		break;
+	case 0xb3:
+		op::or_e();
+		break;
+	case 0xb4:
+		op::or_h();
+		break;
+	case 0xb5:
+		op::or_l();
+		break;
+	case 0xb6:
+		op::or_hl();
+		break;
+	case 0xf6:
+		op::or_n();
+
 	default:
 		op::NOP();
 		break;

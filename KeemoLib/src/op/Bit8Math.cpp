@@ -234,5 +234,50 @@ namespace KeemoLib
 		{
 			math::and_uint8(registers.a, memory::readUInt8(++registers.pc));
 		}
+
+		void op::or_a()
+		{
+			math::or_uint8(registers.a , registers.a);
+		}
+
+		void op::or_b()
+		{
+			math::or_uint8(registers.a , registers.b);
+		}
+
+		void op::or_c()
+		{
+			math::or_uint8(registers.a , registers.c);
+		}
+
+		void op::or_d()
+		{
+			math::or_uint8(registers.a , registers.d);
+		}
+
+		void op::or_e()
+		{
+			math::or_uint8(registers.a , registers.e);
+		}
+
+		void op::or_h()
+		{
+			math::or_uint8(registers.a , registers.h);
+		}
+
+		void op::or_l()
+		{
+			math::or_uint8(registers.a , registers.l);
+		}
+
+		void op::or_hl()
+		{
+			math::or_uint8(registers.a , memory::readUInt8(registers.hl));
+		}
+
+		void op::or_n()
+		{
+			math::or_uint8(registers.a , memory::readUInt8(++registers.pc));
+		}
 	}
 }

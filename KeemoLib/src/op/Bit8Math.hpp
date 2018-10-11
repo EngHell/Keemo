@@ -61,6 +61,17 @@ namespace KeemoLib
 			void and_l();
 			void and_hl();
 			void and_n();
+
+			// OR n
+			void or_a();
+			void or_b();
+			void or_c();
+			void or_d();
+			void or_e();
+			void or_h();
+			void or_l();
+			void or_hl();
+			void or_n();
 		}
 	}
 }
