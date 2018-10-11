@@ -65,6 +65,11 @@ namespace KeemoLib
 					SET_FLAGS(Z);
 
 			}
+
+			inline void sub_carry_uint8(uint8_t& dest, uint8_t value)
+			{
+				sub_uint8(dest, value + (CHECK_FLAG(C)? 1 : 0));
+			}
 		}
 	}
 }

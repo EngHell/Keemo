@@ -527,6 +527,33 @@ void cpu::step()
 		op::sub_n();
 		break;
 
+		// SBC A, n
+	case 0x9f:
+		op::sbc_a();
+		break;
+	case 0x98:
+		op::sbc_b();
+		break;
+	case 0x99:
+		op::sbc_c();
+		break;
+	case 0x9a:
+		op::sbc_d();
+		break;
+	case 0x9b:
+		op::sbc_e();
+		break;
+	case  0x9c:
+		op::sbc_h();
+		break;
+	case 0x9d:
+		op::sbc_l();
+		break;
+	case 0x9e:
+		op::sbc_hl();
+		break;
+	// no op code for SBC A, n
+
 	default:
 		op::NOP();
 		break;

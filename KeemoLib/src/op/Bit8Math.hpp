@@ -39,6 +39,17 @@ namespace KeemoLib
 			void sub_l();
 			void sub_hl();
 			void sub_n();
+
+			// SBC n
+			void sbc_a();
+			void sbc_b();
+			void sbc_c();
+			void sbc_d();
+			void sbc_e();
+			void sbc_h();
+			void sbc_l();
+			void sbc_hl();
+			void sbc_n();
 		}
 	}
 }
