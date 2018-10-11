@@ -1557,7 +1557,7 @@ namespace KeemoTests
 			}
 			TEST_METHOD(Test_and_uint8_with_non_0_result)
 			{
-				uint8_t a = rand() % 0xff;
+				uint8_t a = (rand() % 0xfe) + 1;
 				const uint8_t b = (rand() % 0xfe) + 1;
 
 				const uint8_t expected = a & b;
