@@ -498,6 +498,35 @@ void cpu::step()
 		op::adc_a_n();
 		break;
 
+		// SUB n
+	case 0x97:
+		op::sub_a();
+		break;
+	case 0x90:
+		op::sub_b();
+		break;
+	case 0x91:
+		op::sub_c();
+		break;
+	case 0x92:
+		op::sub_d();
+		break;
+	case 0x93:
+		op::sub_e();
+		break;
+	case 0x94:
+		op::sub_h();
+		break;
+	case 0x95:
+		op::sub_l();
+		break;
+	case 0x96:
+		op::sub_hl();
+		break;
+	case 0xd6:
+		op::sub_n();
+		break;
+
 	default:
 		op::NOP();
 		break;

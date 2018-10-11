@@ -28,6 +28,17 @@ namespace KeemoLib
 			void adc_a_h();
 			void adc_a_l();
 			void adc_a_hl();
+
+			// SUB n
+			void sub_a();
+			void sub_b();
+			void sub_c();
+			void sub_d();
+			void sub_e();
+			void sub_h();
+			void sub_l();
+			void sub_hl();
+			void sub_n();
 		}
 	}
 }

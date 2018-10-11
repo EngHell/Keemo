@@ -96,5 +96,50 @@ namespace KeemoLib
 		{
 			math::add_carry_uint8(registers.a, memory::readUInt8(registers.hl));
 		}
+
+		void op::sub_a()
+		{
+			math::sub_uint8(registers.a, registers.a);
+		}
+
+		void op::sub_b()
+		{
+			math::sub_uint8(registers.a, registers.b);
+		}
+
+		void op::sub_c()
+		{
+			math::sub_uint8(registers.a, registers.c);
+		}
+
+		void op::sub_d()
+		{
+			math::sub_uint8(registers.a, registers.d);
+		}
+
+		void op::sub_e()
+		{
+			math::sub_uint8(registers.a, registers.e);
+		}
+
+		void op::sub_h()
+		{
+			math::sub_uint8(registers.a, registers.h);
+		}
+
+		void op::sub_l()
+		{
+			math::sub_uint8(registers.a, registers.l);
+		}
+
+		void op::sub_hl()
+		{
+			math::sub_uint8(registers.a, memory::readUInt8(registers.hl));
+		}
+
+		void op::sub_n()
+		{
+			math::sub_uint8(registers.a, memory::readUInt8(++registers.pc));
+		}
 	}
 }
