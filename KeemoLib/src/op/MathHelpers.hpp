@@ -84,6 +84,20 @@ namespace KeemoLib
 				CLEAR_FLAGS(N);
 				CLEAR_FLAGS(C);
 			}
+
+			inline void or_uint8(uint8_t& dest, const uint8_t value)
+			{
+				dest |= value;
+
+				if(dest)
+					CLEAR_FLAGS(Z);
+				else
+					SET_FLAGS(Z);
+
+				CLEAR_FLAGS(N);
+				CLEAR_FLAGS(H);
+				CLEAR_FLAGS(C);
+			}
 		}
 	}
 }
