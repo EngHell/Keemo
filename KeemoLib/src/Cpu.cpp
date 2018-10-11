@@ -610,6 +610,7 @@ void cpu::step()
 		break;
 	case 0xf6:
 		op::or_n();
+		break;
 
 		//XOR n
 	case 0xaf:
