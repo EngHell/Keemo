@@ -70,6 +70,20 @@ namespace KeemoLib
 			{
 				sub_uint8(dest, value + (CHECK_FLAG(C)? 1 : 0));
 			}
+
+			inline void and_uint8(uint8_t& dest, const uint8_t value)
+			{
+				dest &= value;
+
+				if(dest)
+					CLEAR_FLAGS(Z);
+				else
+					SET_FLAGS(Z);
+
+				SET_FLAGS(H);
+				CLEAR_FLAGS(N);
+				CLEAR_FLAGS(C);
+			}
 		}
 	}
 }

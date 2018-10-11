@@ -1534,7 +1534,48 @@ namespace KeemoTests
 				// we check pc steps
 				Assert::IsTrue(cpu::registers.pc == (address + oplength));
 			}
-			
+
+			// first we will test our and_uint8(...)
+			TEST_METHOD(Test_and_uint8_with_0_result)
+			{
+				uint8_t a = rand() % 0xff;
+				const uint8_t b = 0;
+
+				const uint8_t expected = a & b;
+
+				using namespace KeemoLib;
+
+				cpu::math::and_uint8(a, b);
+
+				const auto actual = a;
+
+				Assert::AreEqual(expected, actual);
+				Assert::IsTrue(CHECK_FLAG(cpu::Z));
+				Assert::IsTrue(CHECK_FLAG(cpu::H));
+				Assert::IsFalse(CHECK_FLAG(cpu::N));
+				Assert::IsFalse(CHECK_FLAG(cpu::C));
+			}
+
+			TEST_METHOD(Test_and_uint8_with_non_0_result)
+			{
+				uint8_t a = rand() % 0xff;
+				const uint8_t b = (rand() % 0xfe) + 1;
+
+				const uint8_t expected = a & b;
+
+				using namespace KeemoLib;
+
+				cpu::math::and_uint8(a, b);
+
+				const auto actual = a;
+
+				Assert::AreEqual(expected, actual);
+				Assert::IsFalse(CHECK_FLAG(cpu::Z));
+				Assert::IsTrue(CHECK_FLAG(cpu::H));
+				Assert::IsFalse(CHECK_FLAG(cpu::N));
+				Assert::IsFalse(CHECK_FLAG(cpu::C));
+			}
+
 
 		};
 	}
