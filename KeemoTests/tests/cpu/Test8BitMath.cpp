@@ -11,7 +11,9 @@ namespace KeemoTests
 {
 	namespace CpuTests
 	{
-		// well dont rant of me for not doing explicit test for each add operation
+		namespace OpTests
+		{
+			// well dont rant of me for not doing explicit test for each add operation
 		// as they all use the same add(uint8_t& destination, uint8_t value) function.
 		// when you re only 1 you chose to be lazy in the parts that are already tested.
 		TEST_CLASS(Bit8MathTests)
@@ -2238,5 +2240,6 @@ namespace KeemoTests
 				Assert::IsTrue(cpu::registers.pc == (address + oplength));
 			}
 		};
+		}
 	}
 }
