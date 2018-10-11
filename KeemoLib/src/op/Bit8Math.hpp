@@ -72,6 +72,17 @@ namespace KeemoLib
 			void or_l();
 			void or_hl();
 			void or_n();
+
+			// XOR n
+			void xor_a();
+			void xor_b();
+			void xor_c();
+			void xor_d();
+			void xor_e();
+			void xor_h();
+			void xor_l();
+			void xor_hl();
+			void xor_n();
 		}
 	}
 }

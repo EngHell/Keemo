@@ -279,5 +279,51 @@ namespace KeemoLib
 		{
 			math::or_uint8(registers.a , memory::readUInt8(++registers.pc));
 		}
+
+		void op::xor_a()
+		{
+			math::xor_uint8(registers.a);
+		}
+
+		void op::xor_b()
+		{
+			math::xor_uint8(registers.b);
+		}
+
+		void op::xor_c()
+		{
+			math::xor_uint8(registers.c);
+		}
+
+		void op::xor_d()
+		{
+			math::xor_uint8(registers.d);
+		}
+
+		void op::xor_e()
+		{
+			math::xor_uint8(registers.e);
+		}
+
+		void op::xor_h()
+		{
+			math::xor_uint8(registers.h);
+		}
+
+		void op::xor_l()
+		{
+			math::xor_uint8(registers.l);
+		}
+
+		void op::xor_hl()
+		{
+			math::xor_uint8(memory::readUInt8(registers.hl));
+		}
+
+		void op::xor_n()
+		{
+			math::xor_uint8(memory::readUInt8(++registers.pc));
+		}
+
 	}
 }
