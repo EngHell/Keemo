@@ -2239,6 +2239,56 @@ namespace KeemoTests
 				// we check pc steps
 				Assert::IsTrue(cpu::registers.pc == (address + oplength));
 			}
+
+			TEST_METHOD(Test_xor_uint8_with_0_result)
+			{
+				const uint8_t a = rand() % 0xff;
+				const uint8_t b = a;
+
+				const uint8_t expected = a ^ b;
+
+				using namespace KeemoLib;
+
+				cpu::registers.a =  a;
+
+				cpu::math::xor_uint8(b);
+
+				const uint8_t actual = cpu::registers.a;
+
+				Assert::AreEqual(expected, actual);
+
+				Assert::IsTrue(CHECK_FLAG(cpu::Z));
+				Assert::IsFalse(CHECK_FLAG(cpu::N));
+				Assert::IsFalse(CHECK_FLAG(cpu::H));
+				Assert::IsFalse(CHECK_FLAG(cpu::C));
+			}
+			TEST_METHOD(Test_xor_uint8_with_non_0_result)
+			{
+				const uint8_t a = rand() % 0xff;
+				uint8_t b = rand() % 0xff;
+
+				while(a == b)
+				{
+					b = rand() % 0xff;
+				}
+
+				const uint8_t expected = a ^ b;
+
+				using namespace KeemoLib;
+
+				cpu::registers.a = a;
+
+				cpu::math::xor_uint8(b);
+
+				const uint8_t actual = cpu::registers.a;
+
+				Assert::AreEqual(expected, actual);
+
+				Assert::IsFalse(CHECK_FLAG(cpu::Z));
+				Assert::IsFalse(CHECK_FLAG(cpu::N));
+				Assert::IsFalse(CHECK_FLAG(cpu::H));
+				Assert::IsFalse(CHECK_FLAG(cpu::C));
+			}
 		};
 		}
 	}

@@ -98,6 +98,20 @@ namespace KeemoLib
 				CLEAR_FLAGS(H);
 				CLEAR_FLAGS(C);
 			}
+
+			inline void xor_uint8(const uint8_t value)
+			{
+				registers.a ^= value;
+
+				if(registers.a)
+					CLEAR_FLAGS(Z);
+				else
+					SET_FLAGS(Z);
+
+				CLEAR_FLAGS(N);
+				CLEAR_FLAGS(H);
+				CLEAR_FLAGS(C);
+			}
 		}
 	}
 }
