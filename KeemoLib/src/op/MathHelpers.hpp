@@ -42,28 +42,37 @@ namespace KeemoLib
 			{
 				add_uint8(destination, value + (CHECK_FLAG(C)? 1: 0));
 			}
-
-			inline void sub_uint8(uint8_t& dest, uint8_t value)
+			
+			inline uint8_t cp_uint8(const uint8_t a, const uint8_t b)
 			{
-				if(value > dest)
+				uint8_t result = 0;
+
+				if(b > a)
 					SET_FLAGS(C);
 				else
 					CLEAR_FLAGS(C);
 
-				if( (value & 0xf) > (dest & 0xf ))
+				if( (b&0xf) > (a&0xf) )
 					SET_FLAGS(H);
 				else
 					CLEAR_FLAGS(H);
 
 				SET_FLAGS(N);
 
-				dest -= value;
+				result = a - b;
 
-				if(dest)
+				if(result)
 					CLEAR_FLAGS(Z);
 				else
 					SET_FLAGS(Z);
 
+				return result;
+				
+			}
+
+			inline void sub_uint8(uint8_t& dest, uint8_t value)
+			{
+				dest = cp_uint8(dest, value);
 			}
 
 			inline void sub_carry_uint8(uint8_t& dest, uint8_t value)
