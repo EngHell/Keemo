@@ -554,6 +554,35 @@ void cpu::step()
 		break;
 	// no op code for SBC A, n
 
+		// AND n
+	case 0xa7:
+		op::and_a();
+		break;
+	case 0xa0:
+		op::and_b();
+		break;
+	case 0xa1:
+		op::and_c();
+		break;
+	case 0xa2:
+		op::and_d();
+		break;
+	case 0xa3:
+		op::and_e();
+		break;
+	case 0xa4:
+		op::and_h();
+		break;
+	case  0xa5:
+		op::and_l();
+		break;
+	case 0xa6:
+		op::and_hl();
+		break;
+	case 0xe6:
+		op::and_n();
+		break;
+
 	default:
 		op::NOP();
 		break;

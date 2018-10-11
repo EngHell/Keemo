@@ -50,6 +50,17 @@ namespace KeemoLib
 			void sbc_l();
 			void sbc_hl();
 			void sbc_n();
+
+			// AND n
+			void and_a();
+			void and_b();
+			void and_c();
+			void and_d();
+			void and_e();
+			void and_h();
+			void and_l();
+			void and_hl();
+			void and_n();
 		}
 	}
 }
