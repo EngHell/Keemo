@@ -94,6 +94,17 @@ namespace KeemoLib
 			void cp_l();
 			void cp_hl();
 			void cp_n();
+
+			// inc n
+			void inc_a();
+			void inc_b();
+			void inc_c();
+			void inc_d();
+			void inc_e();
+			void inc_h();
+			void inc_l();
+			void inc_hl();
+			
 		}
 	}
 }

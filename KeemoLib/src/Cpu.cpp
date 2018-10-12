@@ -670,6 +670,32 @@ void cpu::step()
 		op::cp_n();
 		break;
 
+		// INC n
+	case 0x3c:
+		op::inc_a();
+		break;
+	case 0x04:
+		op::inc_b();
+		break;
+	case 0x0c:
+		op::inc_c();
+		break;
+	case 0x14:
+		op::inc_d();
+		break;
+	case 0x1c:
+		op::inc_e();
+		break;
+	case 0x24:
+		op::inc_h();
+		break;
+	case 0x2c:
+		op::inc_l();
+		break;
+	case 0x34:
+		op::inc_hl();
+		break;
+
 	default:
 		op::NOP();
 		break;

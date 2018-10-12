@@ -369,5 +369,47 @@ namespace KeemoLib
 		{
 			math::cp_uint8(registers.a, memory::readUInt8(++registers.pc));
 		}
+
+		void op::inc_a()
+		{
+			math::inc_uint8(registers.a);
+		}
+
+		void op::inc_b()
+		{
+			math::inc_uint8(registers.b);
+		}
+
+		void op::inc_c()
+		{
+			math::inc_uint8(registers.c);
+		}
+
+		void op::inc_d()
+		{
+			math::inc_uint8(registers.d);
+		}
+
+		void op::inc_e()
+		{
+			math::inc_uint8(registers.e);
+		}
+
+		void op::inc_h()
+		{
+			math::inc_uint8(registers.h);
+		}
+
+		void op::inc_l()
+		{
+			math::inc_uint8(registers.l);
+		}
+
+		void op::inc_hl()
+		{
+			auto a = memory::readUInt8(registers.hl);
+			math::inc_uint8(a);
+			memory::writeUInt8(registers.hl, a);
+		}
 	}
 }

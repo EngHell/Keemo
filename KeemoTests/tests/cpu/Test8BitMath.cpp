@@ -2672,6 +2672,269 @@ namespace KeemoTests
 				Assert::IsFalse(CHECK_FLAG(cpu::Z));
 				Assert::IsFalse(CHECK_FLAG(cpu::N));
 			}
+
+			TEST_METHOD(Test_inc_a)
+			{
+				// Usual initialization
+				const uint8_t opcode = 0x3c;
+				const uint8_t x = rand() % 0xff;
+
+				const uint8_t expected = x + 1;
+
+				// modifying this so it's more natural.
+				const uint16_t oplength = 1;
+				// we get a random address for our opcode
+				const uint16_t address = rand() % (0xffff - oplength);
+
+				using namespace KeemoLib;
+
+				// pc pointer setup
+				cpu::registers.pc = address;
+				// Opcode write to memory
+				memory::writeUInt8(address, opcode);
+				// Opcode arguments write to memory
+				cpu::registers.a = x;
+
+				// emulation step
+				cpu::step();
+
+				// finally we check our expeted
+				const uint8_t actual = cpu::registers.a;
+				Assert::AreEqual(expected, actual);
+
+				// we check pc steps
+				Assert::IsTrue(cpu::registers.pc == (address + oplength));
+			}
+			TEST_METHOD(Test_inc_b)
+			{
+				// Usual initialization
+				const uint8_t opcode = 0x04;
+				const uint8_t x = rand() % 0xff;
+
+				const uint8_t expected = x + 1;
+
+				// modifying this so it's more natural.
+				const uint16_t oplength = 1;
+				// we get a random address for our opcode
+				const uint16_t address = rand() % (0xffff - oplength);
+
+				using namespace KeemoLib;
+
+				// pc pointer setup
+				cpu::registers.pc = address;
+				// Opcode write to memory
+				memory::writeUInt8(address, opcode);
+				// Opcode arguments write to memory
+				cpu::registers.b = x;
+
+				// emulation step
+				cpu::step();
+
+				// finally we check our expeted
+				const uint8_t actual = cpu::registers.b;
+				Assert::AreEqual(expected, actual);
+
+				// we check pc steps
+				Assert::IsTrue(cpu::registers.pc == (address + oplength));
+			}
+			TEST_METHOD(Test_inc_c)
+			{
+				// Usual initialization
+				const uint8_t opcode = 0x0c;
+				const uint8_t x = rand() % 0xff;
+
+				const uint8_t expected = x + 1;
+
+				// modifying this so it's more natural.
+				const uint16_t oplength = 1;
+				// we get a random address for our opcode
+				const uint16_t address = rand() % (0xffff - oplength);
+
+				using namespace KeemoLib;
+
+				// pc pointer setup
+				cpu::registers.pc = address;
+				// Opcode write to memory
+				memory::writeUInt8(address, opcode);
+				// Opcode arguments write to memory
+				cpu::registers.c = x;
+
+				// emulation step
+				cpu::step();
+
+				// finally we check our expeted
+				const uint8_t actual = cpu::registers.c;
+				Assert::AreEqual(expected, actual);
+
+				// we check pc steps
+				Assert::IsTrue(cpu::registers.pc == (address + oplength));
+			}
+			TEST_METHOD(Test_inc_d)
+			{
+				// Usual initialization
+				const uint8_t opcode = 0x14;
+				const uint8_t x = rand() % 0xff;
+
+				const uint8_t expected = x + 1;
+
+				// modifying this so it's more natural.
+				const uint16_t oplength = 1;
+				// we get a random address for our opcode
+				const uint16_t address = rand() % (0xffff - oplength);
+
+				using namespace KeemoLib;
+
+				// pc pointer setup
+				cpu::registers.pc = address;
+				// Opcode write to memory
+				memory::writeUInt8(address, opcode);
+				// Opcode arguments write to memory
+				cpu::registers.d = x;
+
+				// emulation step
+				cpu::step();
+
+				// finally we check our expeted
+				const uint8_t actual = cpu::registers.d;
+				Assert::AreEqual(expected, actual);
+
+				// we check pc steps
+				Assert::IsTrue(cpu::registers.pc == (address + oplength));
+			}
+			TEST_METHOD(Test_inc_e)
+			{
+				// Usual initialization
+				const uint8_t opcode = 0x1c;
+				const uint8_t x = rand() % 0xff;
+
+				const uint8_t expected = x + 1;
+
+				// modifying this so it's more natural.
+				const uint16_t oplength = 1;
+				// we get a random address for our opcode
+				const uint16_t address = rand() % (0xffff - oplength);
+
+				using namespace KeemoLib;
+
+				// pc pointer setup
+				cpu::registers.pc = address;
+				// Opcode write to memory
+				memory::writeUInt8(address, opcode);
+				// Opcode arguments write to memory
+				cpu::registers.e = x;
+
+				// emulation step
+				cpu::step();
+
+				// finally we check our expeted
+				const uint8_t actual = cpu::registers.e;
+				Assert::AreEqual(expected, actual);
+
+				// we check pc steps
+				Assert::IsTrue(cpu::registers.pc == (address + oplength));
+			}
+			TEST_METHOD(Test_inc_h)
+			{
+				// Usual initialization
+				const uint8_t opcode = 0x24;
+				const uint8_t x = rand() % 0xff;
+
+				const uint8_t expected = x + 1;
+
+				// modifying this so it's more natural.
+				const uint16_t oplength = 1;
+				// we get a random address for our opcode
+				const uint16_t address = rand() % (0xffff - oplength);
+
+				using namespace KeemoLib;
+
+				// pc pointer setup
+				cpu::registers.pc = address;
+				// Opcode write to memory
+				memory::writeUInt8(address, opcode);
+				// Opcode arguments write to memory
+				cpu::registers.h = x;
+
+				// emulation step
+				cpu::step();
+
+				// finally we check our expeted
+				const uint8_t actual = cpu::registers.h;
+				Assert::AreEqual(expected, actual);
+
+				// we check pc steps
+				Assert::IsTrue(cpu::registers.pc == (address + oplength));
+			}
+			TEST_METHOD(Test_inc_l)
+			{
+				// Usual initialization
+				const uint8_t opcode = 0x2c;
+				const uint8_t x = rand() % 0xff;
+
+				const uint8_t expected = x + 1;
+
+				// modifying this so it's more natural.
+				const uint16_t oplength = 1;
+				// we get a random address for our opcode
+				const uint16_t address = rand() % (0xffff - oplength);
+
+				using namespace KeemoLib;
+
+				// pc pointer setup
+				cpu::registers.pc = address;
+				// Opcode write to memory
+				memory::writeUInt8(address, opcode);
+				// Opcode arguments write to memory
+				cpu::registers.l = x;
+
+				// emulation step
+				cpu::step();
+
+				// finally we check our expeted
+				const uint8_t actual = cpu::registers.l;
+				Assert::AreEqual(expected, actual);
+
+				// we check pc steps
+				Assert::IsTrue(cpu::registers.pc == (address + oplength));
+			}
+			TEST_METHOD(Test_inc_hl)
+			{
+				// Usual initialization
+				const uint8_t opcode = 0x34;
+				const uint8_t x = rand() % 0xff;
+
+				const uint8_t expected = x + 1;
+
+				// modifying this so it's more natural.
+				const uint16_t oplength = 1;
+				// we get a random address for our opcode
+				const uint16_t address = rand() % (0xffff - oplength);
+				uint16_t hl = rand() % 0xffff;
+				while(hl <= address && (hl >=  (address-oplength)))
+				{
+					hl = rand() % 0xffff;
+				}
+
+				using namespace KeemoLib;
+
+				// pc pointer setup
+				cpu::registers.pc = address;
+				// Opcode write to memory
+				memory::writeUInt8(address, opcode);
+				// Opcode arguments write to memory
+				cpu::registers.hl = hl;
+				memory::writeUInt8(hl, x);
+
+				// emulation step
+				cpu::step();
+
+				// finally we check our expeted
+				const uint8_t actual = memory::readUInt8(cpu::registers.hl);
+				Assert::AreEqual(expected, actual);
+
+				// we check pc steps
+				Assert::IsTrue(cpu::registers.pc == (address + oplength));
+			}
 		};
 		}
 	}
