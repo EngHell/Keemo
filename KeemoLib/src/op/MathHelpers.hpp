@@ -121,6 +121,23 @@ namespace KeemoLib
 				CLEAR_FLAGS(H);
 				CLEAR_FLAGS(C);
 			}
+
+			inline void inc_uint8(uint8_t& reg)
+			{
+				if( (reg & 0xf) == 0xf)
+					SET_FLAGS(H);
+				else
+					CLEAR_FLAGS(H);
+
+				CLEAR_FLAGS(N);
+
+				reg++;
+
+				if(reg)
+					CLEAR_FLAGS(Z);
+				else
+					SET_FLAGS(Z);
+			}
 		}
 	}
 }

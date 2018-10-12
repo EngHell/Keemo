@@ -2612,6 +2612,66 @@ namespace KeemoTests
 			// will end with a lot of ifs and elses for the assertions and mmmm
 			// i just got lazy :D
 
+			TEST_METHOD(Test_inc_uint8_with_carry_bit_4)
+			{
+				uint8_t a = 0xaf;
+				const uint8_t expected = a + 1;
+
+				using namespace KeemoLib;
+
+				cpu::math::inc_uint8(a);
+
+				Assert::AreEqual(expected, a);
+
+				Assert::IsTrue(CHECK_FLAG(cpu::H));
+				Assert::IsFalse(CHECK_FLAG(cpu::Z));
+				Assert::IsFalse(CHECK_FLAG(cpu::N));
+			}
+			TEST_METHOD(Test_inc_uint8_without_carry_bit_4)
+			{
+				uint8_t a = 0x12;
+				const uint8_t expected = a + 1;
+
+				using namespace KeemoLib;
+
+				cpu::math::inc_uint8(a);
+
+				Assert::AreEqual(expected, a);
+
+				Assert::IsFalse(CHECK_FLAG(cpu::H));
+				Assert::IsFalse(CHECK_FLAG(cpu::Z));
+				Assert::IsFalse(CHECK_FLAG(cpu::N));
+			}
+			TEST_METHOD(Test_inc_uint8_with_0_result)
+			{
+				uint8_t a = 0xff;
+				const uint8_t expected = a + 1;
+
+				using namespace KeemoLib;
+
+				cpu::math::inc_uint8(a);
+
+				Assert::AreEqual(expected, a);
+
+				//Assert::IsTrue(CHECK_FLAG(cpu::H));
+				Assert::IsTrue(CHECK_FLAG(cpu::Z));
+				Assert::IsFalse(CHECK_FLAG(cpu::N));
+			}
+			TEST_METHOD(Test_inc_uint8_with_non_0_result)
+			{
+				uint8_t a = (rand() % 0xfe) + 1;
+				const uint8_t expected = a + 1;
+
+				using namespace KeemoLib;
+
+				cpu::math::inc_uint8(a);
+
+				Assert::AreEqual(expected, a);
+
+				//Assert::IsTrue(CHECK_FLAG(cpu::H));
+				Assert::IsFalse(CHECK_FLAG(cpu::Z));
+				Assert::IsFalse(CHECK_FLAG(cpu::N));
+			}
 		};
 		}
 	}
