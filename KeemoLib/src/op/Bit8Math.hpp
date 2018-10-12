@@ -83,6 +83,17 @@ namespace KeemoLib
 			void xor_l();
 			void xor_hl();
 			void xor_n();
+
+			// CP n
+			void cp_a();
+			void cp_b();
+			void cp_c();
+			void cp_d();
+			void cp_e();
+			void cp_h();
+			void cp_l();
+			void cp_hl();
+			void cp_n();
 		}
 	}
 }

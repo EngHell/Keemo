@@ -2602,6 +2602,16 @@ namespace KeemoTests
 				// we check pc steps
 				Assert::IsTrue(cpu::registers.pc == (address + oplength));
 			}
+
+			// why no tests for cp?
+			// well since i made it before sub_uint8
+			// then i refactore sub_uint8 to use cp
+			// it should be already tested inside
+			// i yet somehow got a bit lazy and don't want to make tests for cp
+			// why? because what would i tests? the flags? since i make the numbers random i
+			// will end with a lot of ifs and elses for the assertions and mmmm
+			// i just got lazy :D
+
 		};
 		}
 	}

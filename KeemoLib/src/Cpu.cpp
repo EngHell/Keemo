@@ -641,6 +641,35 @@ void cpu::step()
 		op::xor_n();
 		break;
 
+		// CP n
+	case 0xbf:
+		op::cp_a();
+		break;
+	case 0xb8:
+		op::cp_b();
+		break;
+	case 0xb9:
+		op::cp_c();
+		break;
+	case 0xba:
+		op::cp_d();
+		break;
+	case 0xbb:
+		op::cp_e();
+		break;
+	case 0xbc:
+		op::cp_h();
+		break;
+	case 0xbd:
+		op::cp_l();
+		break;
+	case 0xbe:
+		op::cp_hl();
+		break;
+	case 0xfe:
+		op::cp_n();
+		break;
+
 	default:
 		op::NOP();
 		break;
