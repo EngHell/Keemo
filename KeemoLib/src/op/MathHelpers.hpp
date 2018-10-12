@@ -138,6 +138,22 @@ namespace KeemoLib
 				else
 					SET_FLAGS(Z);
 			}
+
+			inline void dec_uint8(uint8_t& reg)
+			{
+				if(reg & 0xf)
+					SET_FLAGS(H);
+				else
+					CLEAR_FLAGS(H);
+
+				SET_FLAGS(N);
+				--reg;
+
+				if(reg)
+					CLEAR_FLAGS(Z);
+				else
+					SET_FLAGS(Z);
+			}
 		}
 	}
 }
