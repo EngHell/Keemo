@@ -411,5 +411,47 @@ namespace KeemoLib
 			math::inc_uint8(a);
 			memory::writeUInt8(registers.hl, a);
 		}
+
+		void op::dec_a()
+		{
+			math::dec_uint8(registers.a);
+		}
+
+		void op::dec_b()
+		{
+			math::dec_uint8(registers.b);
+		}
+
+		void op::dec_c()
+		{
+			math::dec_uint8(registers.c);
+		}
+
+		void op::dec_d()
+		{
+			math::dec_uint8(registers.d);
+		}
+
+		void op::dec_e()
+		{
+			math::dec_uint8(registers.e);
+		}
+
+		void op::dec_h()
+		{
+			math::dec_uint8(registers.h);
+		}
+
+		void op::dec_l()
+		{
+			math::dec_uint8(registers.l);
+		}
+
+		void op::dec_hl()
+		{
+			auto a = memory::readUInt8(registers.hl);
+			math::dec_uint8(a);
+			memory::writeUInt8(registers.hl, a);
+		}
 	}
 }

@@ -696,6 +696,32 @@ void cpu::step()
 		op::inc_hl();
 		break;
 
+		// DEC n
+	case 0x3d:
+		op::dec_a();
+		break;
+	case 0x05:
+		op::dec_b();
+		break;
+	case 0x0d:
+		op::dec_c();
+		break;
+	case 0x15:
+		op::dec_d();
+		break;
+	case 0x1d:
+		op::dec_e();
+		break;
+	case 0x25:
+		op::dec_h();
+		break;
+	case 0x2d:
+		op::dec_l();
+		break;
+	case 0x35:
+		op::dec_hl();
+		break;
+
 	default:
 		op::NOP();
 		break;

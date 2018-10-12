@@ -104,6 +104,16 @@ namespace KeemoLib
 			void inc_h();
 			void inc_l();
 			void inc_hl();
+
+			// DEC n
+			void dec_a();
+			void dec_b();
+			void dec_c();
+			void dec_d();
+			void dec_e();
+			void dec_h();
+			void dec_l();
+			void dec_hl();
 			
 		}
 	}
