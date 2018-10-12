@@ -469,6 +469,259 @@ void cpu::step()
 		op::add_a_n();
 		break;
 
+		// ADC A, n
+	case 0x8f:
+		op::adc_a_a();
+		break;
+	case 0x88:
+		op::adc_a_b();
+		break;
+	case 0x89:
+		op::adc_a_c();
+		break;
+	case 0x8a:
+		op::adc_a_d();
+		break;
+	case 0x8b:
+		op::adc_a_e();
+		break;
+	case 0x8c:
+		op::adc_a_h();
+		break;
+	case 0x8d:
+		op::adc_a_l();
+		break;
+	case 0x8e:
+		op::adc_a_hl();
+		break;
+	case 0xce:
+		op::adc_a_n();
+		break;
+
+		// SUB n
+	case 0x97:
+		op::sub_a();
+		break;
+	case 0x90:
+		op::sub_b();
+		break;
+	case 0x91:
+		op::sub_c();
+		break;
+	case 0x92:
+		op::sub_d();
+		break;
+	case 0x93:
+		op::sub_e();
+		break;
+	case 0x94:
+		op::sub_h();
+		break;
+	case 0x95:
+		op::sub_l();
+		break;
+	case 0x96:
+		op::sub_hl();
+		break;
+	case 0xd6:
+		op::sub_n();
+		break;
+
+		// SBC A, n
+	case 0x9f:
+		op::sbc_a();
+		break;
+	case 0x98:
+		op::sbc_b();
+		break;
+	case 0x99:
+		op::sbc_c();
+		break;
+	case 0x9a:
+		op::sbc_d();
+		break;
+	case 0x9b:
+		op::sbc_e();
+		break;
+	case  0x9c:
+		op::sbc_h();
+		break;
+	case 0x9d:
+		op::sbc_l();
+		break;
+	case 0x9e:
+		op::sbc_hl();
+		break;
+	// no op code for SBC A, n
+
+		// AND n
+	case 0xa7:
+		op::and_a();
+		break;
+	case 0xa0:
+		op::and_b();
+		break;
+	case 0xa1:
+		op::and_c();
+		break;
+	case 0xa2:
+		op::and_d();
+		break;
+	case 0xa3:
+		op::and_e();
+		break;
+	case 0xa4:
+		op::and_h();
+		break;
+	case  0xa5:
+		op::and_l();
+		break;
+	case 0xa6:
+		op::and_hl();
+		break;
+	case 0xe6:
+		op::and_n();
+		break;
+
+		// OR n
+	case 0xb7:
+		op::or_a();
+		break;
+	case 0xb0:
+		op::or_b();
+		break;
+	case 0xb1:
+		op::or_c();
+		break;
+	case 0xb2:
+		op::or_d();
+		break;
+	case 0xb3:
+		op::or_e();
+		break;
+	case 0xb4:
+		op::or_h();
+		break;
+	case 0xb5:
+		op::or_l();
+		break;
+	case 0xb6:
+		op::or_hl();
+		break;
+	case 0xf6:
+		op::or_n();
+		break;
+
+		//XOR n
+	case 0xaf:
+		op::xor_a();
+		break;
+	case 0xa8:
+		op::xor_b();
+		break;
+	case 0xa9:
+		op::xor_c();
+		break;
+	case 0xaa:
+		op::xor_d();
+		break;
+	case 0xab:
+		op::xor_e();
+		break;
+	case 0xac:
+		op::xor_h();
+		break;
+	case 0xad:
+		op::xor_l();
+		break;
+	case 0xae:
+		op::xor_hl();
+		break;
+	case 0xee:
+		op::xor_n();
+		break;
+
+		// CP n
+	case 0xbf:
+		op::cp_a();
+		break;
+	case 0xb8:
+		op::cp_b();
+		break;
+	case 0xb9:
+		op::cp_c();
+		break;
+	case 0xba:
+		op::cp_d();
+		break;
+	case 0xbb:
+		op::cp_e();
+		break;
+	case 0xbc:
+		op::cp_h();
+		break;
+	case 0xbd:
+		op::cp_l();
+		break;
+	case 0xbe:
+		op::cp_hl();
+		break;
+	case 0xfe:
+		op::cp_n();
+		break;
+
+		// INC n
+	case 0x3c:
+		op::inc_a();
+		break;
+	case 0x04:
+		op::inc_b();
+		break;
+	case 0x0c:
+		op::inc_c();
+		break;
+	case 0x14:
+		op::inc_d();
+		break;
+	case 0x1c:
+		op::inc_e();
+		break;
+	case 0x24:
+		op::inc_h();
+		break;
+	case 0x2c:
+		op::inc_l();
+		break;
+	case 0x34:
+		op::inc_hl();
+		break;
+
+		// DEC n
+	case 0x3d:
+		op::dec_a();
+		break;
+	case 0x05:
+		op::dec_b();
+		break;
+	case 0x0d:
+		op::dec_c();
+		break;
+	case 0x15:
+		op::dec_d();
+		break;
+	case 0x1d:
+		op::dec_e();
+		break;
+	case 0x25:
+		op::dec_h();
+		break;
+	case 0x2d:
+		op::dec_l();
+		break;
+	case 0x35:
+		op::dec_hl();
+		break;
+
 	default:
 		op::NOP();
 		break;
