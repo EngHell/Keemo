@@ -1,6 +1,6 @@
-﻿#include "../includes/Core.hpp"
-#include "../includes/Cartridge.hpp"
-#include "../includes/Cpu.hpp"
+﻿#include "Core.hpp"
+#include "Cartridge.hpp"
+#include "Cpu.hpp"
 
 
 bool KeemoLib::Core::bootUp(std::string path)

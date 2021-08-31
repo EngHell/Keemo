@@ -1,8 +1,8 @@
-﻿#pragma once
-#include "..\includes\Cartridge.hpp"
-#include "..\includes\Memory.hpp"
+﻿#include "Cartridge.hpp"
+#include "Memory.hpp"
 #include <fstream>
-#include "../includes/Cpu.hpp"
+#include <sys/stat.h>
+#include "Cpu.hpp"
 
 namespace KeemoLib
 {

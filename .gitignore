@@ -262,3 +262,6 @@ __pycache__/
 /KeemoSDL/tetris.gb
 
 KeemoSDL/imgui\.ini
+
+
+/**/cmake-build-debug

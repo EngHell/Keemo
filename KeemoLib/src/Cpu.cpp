@@ -1,5 +1,5 @@
-#include "../includes/Cpu.hpp"
-#include "../includes/Memory.hpp"
+#include "Cpu.hpp"
+#include "Memory.hpp"
 #include "op/Op.hpp"
 
 namespace KeemoLib

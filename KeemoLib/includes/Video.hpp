@@ -1,5 +1,5 @@
 #pragma once
-#include "../includes/KeemoDefines.h"
+#include "KeemoDefines.h"
 
 namespace KeemoLib
 {
