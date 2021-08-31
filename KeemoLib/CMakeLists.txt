@@ -1,16 +1,11 @@
-cmake_minimum_required(VERSION 3.7...3.21)
+set(HEADER_LIST
+        "includes/Cartridge.hpp"
+        "includes/Core.hpp"
+        "includes/Cpu.hpp"
+        "includes/KeemoDefines.h"
+        "includes/Memory.hpp"
+        "includes/Video.hpp")
 
-if(${CMAKE_VERSION} VERSION_LESS 3.12)
-    cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
-endif()
-
-# set the project name
-project(KeemoLib VERSION 0.0.1
-        DESCRIPTION "Keemo GameBoy emulator library"
-        LANGUAGES CXX)
-
-
-set(CMAKE_CXX_STANDARD 17)
-
-add_library(KeemoLib STATIC src/Cartridge.cpp src/Core.cpp src/Cpu.cpp src/Memory.cpp src/Video.cpp)
+add_library(KeemoLib STATIC src/Cartridge.cpp src/Core.cpp src/Cpu.cpp src/Memory.cpp src/Video.cpp ${HEADER_LIST})
 target_include_directories(KeemoLib PUBLIC includes)
+target_compile_features(KeemoLib PUBLIC cxx_std_17)

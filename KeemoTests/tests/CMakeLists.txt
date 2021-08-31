@@ -1,25 +1,16 @@
-cmake_minimum_required(VERSION 3.7...3.21)
-
-if(${CMAKE_VERSION} VERSION_LESS 3.12)
-    cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
-endif()
-
-# set the project name
-project(KeemoTestsFolder
-        DESCRIPTION "The tests source files folder, used for add_subdirectory()"
-        LANGUAGES CXX)
-
-
-set(CMAKE_CXX_STANDARD 17)
-
-
+#cartridge test_case
 add_executable(
-        hello_test
-        hello_test.cxx
+        cartridge_load_test
+        cartridge/CartridgeLoadTests.cpp
 )
+
+target_compile_features(cartridge_load_test PRIVATE cxx_std_17)
+
 target_link_libraries(
-        hello_test
+        cartridge_load_test
+        PRIVATE
+        KeemoLib
         gtest_main
 )
 
-gtest_discover_tests(hello_test)
+gtest_discover_tests(cartridge_load_test)

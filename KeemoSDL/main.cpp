@@ -14,7 +14,7 @@
 #include <SDL_opengl.h>
 #include "KeemoUi.hpp"
 
-#include <windows.h>
+//include <windows.h>
 #include <oleauto.h>
 #include "Cpu.hpp"
 
