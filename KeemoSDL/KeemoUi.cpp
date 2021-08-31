@@ -4,10 +4,12 @@
 #include "Memory.hpp"
 #include <string>
 #include <iostream>
+/*
 #include <Windows.h>
 #include <shobjidl.h>
 #include <shtypes.h>
 #include <shlwapi.h>
+ */
 #include "Core.hpp"
 
 
@@ -123,7 +125,7 @@ void ui::showDebugger(bool* show, bool* play, bool* step_by_step_mode)
 			
 		} else
 		{
-			strerror_s(err_buff, err_buff_size, errno);
+			strerror_r(errno, err_buff, err_buff_size);
 			std::cerr << "Error: " << err_buff;
 		}
 	}
@@ -202,6 +204,7 @@ bool ui::InputUint16(const char* label, uint16_t* uint, char* buff, size_t buff_
 
 bool ui::openFileWithWindowsApi(char* result, int buff_size)
 {
+    /*
 	bool success = false;
 
 	OPENFILENAME ofn;
@@ -263,4 +266,6 @@ bool ui::openFileWithWindowsApi(char* result, int buff_size)
 	}
 
 	return success;
+     */
+    return false;
 }

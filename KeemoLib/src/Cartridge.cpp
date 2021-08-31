@@ -2,6 +2,7 @@
 #include "Memory.hpp"
 #include <fstream>
 #include <sys/stat.h>
+#include <iostream>
 #include "Cpu.hpp"
 
 namespace KeemoLib
@@ -64,7 +65,9 @@ bool KeemoLib::cartridge::loadCartridgeToMemory(std::string path)
 		
 		file.close();
 
-	}
+	} else {
+        std::cout << "Failed opening file: " << path << std::endl;
+    }
 
 	return success;
 	
@@ -78,6 +81,7 @@ void KeemoLib::cartridge::readCartrideTitle()
 
 	for(uint16_t i = Consts::ROM_TITLE_START_OFFSET; i <= Consts::ROM_TITLE_END_OFFSET; i++)
 	{
+        //copying from the rom address to the buff start
 		buff[i- Consts::ROM_TITLE_START_OFFSET] = memory::rom[i];
 	}
 

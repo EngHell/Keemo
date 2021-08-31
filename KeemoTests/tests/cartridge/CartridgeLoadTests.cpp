@@ -1,5 +1,5 @@
-﻿#include "Cartridge.hpp"
-#include <gtest/gtest.h>
+﻿#include <gtest/gtest.h>
+#include "Cartridge.hpp"
 
 TEST(CartridgeTests, TestCartridgeLoadStepByStepTetris) {
     using namespace KeemoLib;
@@ -13,7 +13,7 @@ TEST(CartridgeTests, TestCartridgeLoadStepByStepTetris) {
     std::string expectedTitle = "TETRIS";
     cartridge::readCartrideTitle();
 
-    ASSERT_EQ(expectedTitle.c_str(), cartridge::title.c_str());
+    ASSERT_STREQ(expectedTitle.c_str(), cartridge::title.c_str());
 
     // now we test the correct mb type that should be 0x0 for tetris
     const bool typeSuccess = cartridge::readCartridgeType();

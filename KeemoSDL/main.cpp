@@ -15,7 +15,7 @@
 #include "KeemoUi.hpp"
 
 //include <windows.h>
-#include <oleauto.h>
+//#include <oleauto.h>
 #include "Cpu.hpp"
 
 int main(int, char**)

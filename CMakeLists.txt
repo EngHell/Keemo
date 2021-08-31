@@ -13,8 +13,8 @@ project(Keemo VERSION 0.0.1
 set(CMAKE_CXX_STANDARD 17)
 
 include(FetchContent)
-include(CTest)
+#include(CTest)
 
 add_subdirectory(KeemoLib)
-#add_subdirectory(KeemoSDL)
+add_subdirectory(KeemoSDL)
 add_subdirectory(KeemoTests)
