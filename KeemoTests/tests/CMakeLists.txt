@@ -19,24 +19,15 @@ file(COPY roms/tetris.gb DESTINATION roms)
 function(new_test testname interiorDirectory)
     add_executable(${testname} ${interiorDirectory}/${testname}.cpp)
 
-    target_link_libraries(${testname} ${GTEST_LIBRARIES})
+    add_dependencies(${testname} KeemoLib)
 
-    gtest_discover_tests(${testname}
-            WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${interiorDirectory})
+    target_compile_features(${testname} PRIVATE cxx_std_17)
+
+    target_link_libraries(${testname} PRIVATE KeemoLib gtest_main)
+
+    gtest_discover_tests(${testname})
 endfunction(new_test)
 
-
+# tests.
 #cartridge test_case
-add_executable(
-        cartridge_load_test
-        cartridge/CartridgeLoadTests.cpp
-)
-add_dependencies(cartridge_load_test KeemoLib)
-target_compile_features(cartridge_load_test PRIVATE cxx_std_17)
-target_link_libraries(
-        cartridge_load_test
-        PRIVATE
-        KeemoLib
-        gtest_main
-)
-gtest_discover_tests(cartridge_load_test)
+new_test(cartridge_load_tests cartridge)
